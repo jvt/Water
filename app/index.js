@@ -67,6 +67,12 @@ export class Login extends Component {
 					textStyle={{fontSize: 18}}>
 					Login
 				</Button>
+				<Button
+					style={{borderWidth: 0}}
+					onPress={() => this.props.navigator.pop()}
+					textStyle={{fontSize: 18}}>
+					Return
+				</Button>
 			</View>
 		)
 	}
