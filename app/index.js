@@ -13,6 +13,7 @@ import {
 
 import Button from 'apsl-react-native-button';
 
+
 export class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -33,7 +34,7 @@ export class Login extends Component {
 				Alert.alert('Your login was incorrect');
 			} else {
 				this.props.navigator.push({
-					id: 3
+					index: 3
 				});
 			}
 		}
@@ -57,6 +58,7 @@ export class Login extends Component {
 				<TextInput
 					style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
 					onChangeText={(Password) => this.setState({Password})}
+					onFocus= {() => this.setState({text : ''})}
 					placeholder='Password'
 					secureTextEntry={true}
 					returnKeyType='go'
@@ -77,6 +79,38 @@ export class Login extends Component {
 		)
 	}
 }
+
+export class Main extends Component {
+	render() {
+		const _navigateToWelcome = () => {
+			this.props.navigator.resetTo({
+				index: 0
+			});
+		}
+
+		return (
+			<View style={styles.fullscreen}>
+				<View style={{alignItems: 'center'}}>
+					<Image
+						style={{width: 80, height: 175}}
+						source={require('./images/droplet.png')}
+					/>
+				</View>
+				<Text
+					style={{fontSize: 20, textAlign: 'center', fontWeight: '200'}}>
+					Clean Water
+				</Text>
+				<Button
+					style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					onPress={() => _navigateToWelcome()}
+					textStyle={{fontSize: 18}}>
+					Logout
+				</Button>
+			</View>
+		)
+	}
+}
+
 
 export class Welcome extends Component {
 	render() {
@@ -139,6 +173,8 @@ export default class water extends Component {
 				return <Login navigator={navigator}></Login>
 			} else if (route.index === 2) {
 
+			} else if (route.index === 3) {
+				return <Main navigator={navigator}></Main>
 			}
 		};
 
@@ -156,10 +192,10 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		backgroundColor: 'white'
 	},
 	fullscreen: {
-		// alignItems: 'center'
 		backgroundColor: 'white'
 	}
 });
