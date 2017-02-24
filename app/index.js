@@ -15,7 +15,7 @@ import styles from './styles';
 import Button from 'apsl-react-native-button';
 import Login from './login';
 import Registration from './registration';
-import Welcome from './main';
+import Welcome from './initial';
 
 export class Main extends Component {
 	render() {
@@ -57,10 +57,21 @@ export default class water extends Component {
 
 	render() {
 		const routes = [
-			{title: 'Welcome Screen', index: 0},
-			{title: 'Login Screen', index: 1},
-			{title: 'Register Screen', index: 2},
-			{title: 'Main Application', index: 3},
+			{
+				title: 'Welcome Screen',
+				index: 0
+			},
+			{
+				title: 'Login Screen',
+				index: 1
+			},
+			{
+				title: 'Register Screen',
+				index: 2
+			},
+			{
+				title: 'Main Application',
+				index: 3},
 		];
 
 		const renderScene = (route, navigator) => {
@@ -80,6 +91,12 @@ export default class water extends Component {
 				initialRoute={routes[0]}
 				initialRouteStack={routes}
 				renderScene={renderScene}
+				configureScene={(route) => {
+					if (route.index === 1 || route.index === 2) {
+						return Navigator.SceneConfigs.VerticalUpSwipeJump;
+					}
+					return Navigator.SceneConfigs.PushFromRight;
+				}}
 			/>
 		)
 	}

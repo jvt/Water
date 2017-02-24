@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white'
 	},
 	fullscreen: {
-		backgroundColor: 'white'
+		backgroundColor: 'white',
+		flex: 1
 	}
 });
 

@@ -45,9 +45,7 @@ export class Registration extends Component {
 				.then((res) => {
 					if (res && res.status === 'success') {
 						console.info('New user account created');
-						this.props.navigator.push({
-							index: 3
-						});
+						this.props.navigator.replacePreviousAndPop({index: 3});
 					} else {
 						if (res.messages.length > 0) {
 							console.log('An error occurred with registration!');
@@ -72,6 +70,10 @@ export class Registration extends Component {
 							source={require('./images/droplet.png')}
 						/>
 					</View>
+					<Text
+						style={{fontSize: 20, textAlign: 'center', fontWeight: '200'}}>
+						Register
+					</Text>
 					<TextInput
 						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20}}
 						onChangeText={(Username) => this.setState({Username})}
