@@ -39,7 +39,7 @@ export class Login extends Component {
 				})
 				.then((response) => response.json())
 				.then((res) => {
-					if (res && res.status === 'success') {
+					if (res && res.status === 'success' && res.auth === true) {
 						console.info('Successful login attempt');
 						this.props.navigator.push({
 							index: 3
