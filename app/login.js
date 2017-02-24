@@ -42,9 +42,7 @@ export class Login extends Component {
 				.then((res) => {
 					if (res && res.status === 'success' && res.auth === true) {
 						console.info('Successful login attempt');
-						this.props.navigator.push({
-							index: 3
-						});
+						this.props.navigator.replacePreviousAndPop({index: 3});
 					} else {
 						if (res.messages.length > 0) {
 							console.log('An error occurred with login!');

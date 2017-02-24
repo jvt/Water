@@ -12,6 +12,10 @@ import {
 
 import styles from './styles';
 import Button from 'apsl-react-native-button';
+import SegmentedControlTab from 'react-native-segmented-control-tab';
+
+let MessageBarAlert = require('react-native-message-bar').MessageBar;
+let MessageBarManager = require('react-native-message-bar').MessageBarManager;
 
 export class Registration extends Component {
 	constructor(props) {
@@ -23,6 +27,14 @@ export class Registration extends Component {
 			ConfirmPassword: '',
 			Role: ''
 		};
+	}
+
+	componentDidMount() {
+		MessageBarManager.registerMessageBar(this.refs.alert);
+	}
+
+	componentWillUnmount() {
+		MessageBarManager.unregisterMessageBar();
 	}
 
 	render() {
@@ -39,6 +51,7 @@ export class Registration extends Component {
 						username: this.state.Username,
 						password: this.state.Password,
 						confirm_password: this.state.ConfirmPassword,
+						role: this.state.Role
 					})
 				})
 				.then((response) => response.json())
@@ -50,7 +63,12 @@ export class Registration extends Component {
 						if (res.messages.length > 0) {
 							console.log('An error occurred with registration!');
 							console.log(res.messages);
-							Alert.alert(res.messages[0]);
+							// Alert.alert(res.messages[0]);
+							MessageBarManager.showAlert({
+							  title: 'Error',
+							  message: res.messages[0],
+							  alertType: 'error',
+							});
 						} else {
 							Alert.alert('An unexpected error occurred. Please try again.');
 						}
@@ -63,6 +81,7 @@ export class Registration extends Component {
 
 		return (
 			<View style={styles.fullscreen}>
+				<MessageBarAlert ref="alert"></MessageBarAlert>
 		        <ScrollView keyboardDismissMode='on-drag'>
 					<View style={{alignItems: 'center'}}>
 						<Image
@@ -98,6 +117,13 @@ export class Registration extends Component {
 						secureTextEntry={true}
 						returnKeyType='go'
 					/>
+					<View
+						style={{padding: 20, paddingBottom: 0, marginBottom: -20}}>
+						<SegmentedControlTab
+							values={['User', 'Worker', 'Manager', 'Admin']}
+							onTabPress={(Role) => this.setState({Role})}
+						/>
+					</View>
 					<Button
 						style={{backgroundColor: 'rgba(65, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
 						onPress={() => registerUser()}
