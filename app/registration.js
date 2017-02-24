@@ -6,6 +6,7 @@ import {
 	Navigator,
 	Text,
 	TextInput,
+	ScrollView,
 	StyleSheet
 } from 'react-native';
 
@@ -64,48 +65,50 @@ export class Registration extends Component {
 
 		return (
 			<View style={styles.fullscreen}>
-				<View style={{alignItems: 'center'}}>
-					<Image
-						style={{width: 80, height: 175}}
-						source={require('./images/droplet.png')}
+		        <ScrollView keyboardDismissMode='on-drag'>
+					<View style={{alignItems: 'center'}}>
+						<Image
+							style={{width: 80, height: 175}}
+							source={require('./images/droplet.png')}
+						/>
+					</View>
+					<TextInput
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20}}
+						onChangeText={(Username) => this.setState({Username})}
+						placeholder='Username'
+						autoCorrect={false}
+						returnKeyType='next'
+						autoCapitalize='none'
 					/>
-				</View>
-				<TextInput
-					style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20}}
-					onChangeText={(Username) => this.setState({Username})}
-					placeholder='Username'
-					autoCorrect={false}
-					returnKeyType='next'
-					autoCapitalize='none'
-				/>
-				<TextInput
-					style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
-					onChangeText={(Password) => this.setState({Password})}
-					onFocus= {() => this.setState({text : ''})}
-					placeholder='Password'
-					secureTextEntry={true}
-					returnKeyType='go'
-				/>
-				<TextInput
-					style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
-					onChangeText={(ConfirmPassword) => this.setState({ConfirmPassword})}
-					onFocus= {() => this.setState({text : ''})}
-					placeholder='Confirm Password'
-					secureTextEntry={true}
-					returnKeyType='go'
-				/>
-				<Button
-					style={{backgroundColor: 'rgba(65, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
-					onPress={() => registerUser()}
-					textStyle={{fontSize: 18}}>
-					Register
-				</Button>
-				<Button
-					style={{borderWidth: 0}}
-					onPress={() => this.props.navigator.pop()}
-					textStyle={{fontSize: 18}}>
-					Return
-				</Button>
+					<TextInput
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
+						onChangeText={(Password) => this.setState({Password})}
+						onFocus= {() => this.setState({text : ''})}
+						placeholder='Password'
+						secureTextEntry={true}
+						returnKeyType='go'
+					/>
+					<TextInput
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
+						onChangeText={(ConfirmPassword) => this.setState({ConfirmPassword})}
+						onFocus= {() => this.setState({text : ''})}
+						placeholder='Confirm Password'
+						secureTextEntry={true}
+						returnKeyType='go'
+					/>
+					<Button
+						style={{backgroundColor: 'rgba(65, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+						onPress={() => registerUser()}
+						textStyle={{fontSize: 18}}>
+						Register
+					</Button>
+					<Button
+						style={{borderWidth: 0}}
+						onPress={() => this.props.navigator.pop()}
+						textStyle={{fontSize: 18}}>
+						Return
+					</Button>
+		        </ScrollView>
 			</View>
 		)
 	}
