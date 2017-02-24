@@ -12,20 +12,22 @@ import {
 import styles from './styles';
 import Button from 'apsl-react-native-button';
 
-export class Login extends Component {
+export class Registration extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			Username: '',
-			Password: ''
+			Password: '',
+			ConfirmPassword: '',
+			Role: ''
 		};
 	}
 
 	render() {
 
-		const verifyLogin = () => {
-			return fetch('https://water.joetorraca.com/api/session',
+		const registerUser = () => {
+			return fetch('https://water.joetorraca.com/api/user',
 				{
 					method: 'POST',
 					headers: {
@@ -35,18 +37,19 @@ export class Login extends Component {
 					body: JSON.stringify({
 						username: this.state.Username,
 						password: this.state.Password,
+						confirm_password: this.state.ConfirmPassword,
 					})
 				})
 				.then((response) => response.json())
 				.then((res) => {
 					if (res && res.status === 'success') {
-						console.info('Successful login attempt');
+						console.info('New user account created');
 						this.props.navigator.push({
 							index: 3
 						});
 					} else {
 						if (res.messages.length > 0) {
-							console.log('An error occurred with login!');
+							console.log('An error occurred with registration!');
 							console.log(res.messages);
 							Alert.alert(res.messages[0]);
 						} else {
@@ -68,7 +71,7 @@ export class Login extends Component {
 					/>
 				</View>
 				<TextInput
-					style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 100, marginLeft: 20, marginRight: 20}}
+					style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20}}
 					onChangeText={(Username) => this.setState({Username})}
 					placeholder='Username'
 					autoCorrect={false}
@@ -83,11 +86,19 @@ export class Login extends Component {
 					secureTextEntry={true}
 					returnKeyType='go'
 				/>
+				<TextInput
+					style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
+					onChangeText={(ConfirmPassword) => this.setState({ConfirmPassword})}
+					onFocus= {() => this.setState({text : ''})}
+					placeholder='Confirm Password'
+					secureTextEntry={true}
+					returnKeyType='go'
+				/>
 				<Button
 					style={{backgroundColor: 'rgba(65, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
-					onPress={() => verifyLogin()}
+					onPress={() => registerUser()}
 					textStyle={{fontSize: 18}}>
-					Login
+					Register
 				</Button>
 				<Button
 					style={{borderWidth: 0}}
@@ -100,4 +111,4 @@ export class Login extends Component {
 	}
 }
 
-module.exports = Login;
+module.exports = Registration;
