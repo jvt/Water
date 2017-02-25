@@ -13,9 +13,12 @@ import {
 import styles from './styles';
 import Button from 'apsl-react-native-button';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
+import BusyIndicator from 'react-native-busy-indicator';
 
 let MessageBarAlert = require('react-native-message-bar').MessageBar;
 let MessageBarManager = require('react-native-message-bar').MessageBarManager;
+
+const loaderHandler = require('react-native-busy-indicator/LoaderHandler');
 
 export class Registration extends Component {
 	constructor(props) {
@@ -40,6 +43,7 @@ export class Registration extends Component {
 	render() {
 
 		const registerUser = () => {
+			loaderHandler.showLoader("Loading");
 			return fetch('https://water.joetorraca.com/api/user',
 				{
 					method: 'POST',
@@ -60,6 +64,7 @@ export class Registration extends Component {
 						console.info('New user account created');
 						this.props.navigator.replacePreviousAndPop({index: 3});
 					} else {
+						loaderHandler.hideLoader();
 						if (res.messages.length > 0) {
 							console.log('An error occurred with registration!');
 							console.log(res.messages);
@@ -137,6 +142,7 @@ export class Registration extends Component {
 						Return
 					</Button>
 		        </ScrollView>
+				<BusyIndicator />
 			</View>
 		)
 	}

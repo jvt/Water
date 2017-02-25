@@ -12,6 +12,9 @@ import {
 
 import styles from './styles';
 import Button from 'apsl-react-native-button';
+import BusyIndicator from 'react-native-busy-indicator';
+
+const loaderHandler = require('react-native-busy-indicator/LoaderHandler');
 
 export class Login extends Component {
 	constructor(props) {
@@ -26,6 +29,7 @@ export class Login extends Component {
 	render() {
 
 		const verifyLogin = () => {
+			loaderHandler.showLoader("Loading");
 			return fetch('https://water.joetorraca.com/api/session',
 				{
 					method: 'POST',
@@ -44,6 +48,7 @@ export class Login extends Component {
 						console.info('Successful login attempt');
 						this.props.navigator.replacePreviousAndPop({index: 3});
 					} else {
+						loaderHandler.hideLoader();
 						if (res.messages.length > 0) {
 							console.log('An error occurred with login!');
 							console.log(res.messages);
@@ -100,6 +105,7 @@ export class Login extends Component {
 						Return
 					</Button>
 				</ScrollView>
+				<BusyIndicator />
 			</View>
 		)
 	}
