@@ -16,12 +16,19 @@ import Button from 'apsl-react-native-button';
 import Login from './login';
 import Registration from './registration';
 import Welcome from './initial';
+import Profile from './profile';
 
 export class Main extends Component {
 	render() {
 		const _navigateToWelcome = () => {
 			this.props.navigator.resetTo({
 				index: 0
+			});
+		}
+
+		const _navigateToProfile = () => {
+			this.props.navigator.push({
+				index: 4
 			});
 		}
 
@@ -37,6 +44,12 @@ export class Main extends Component {
 					style={{fontSize: 20, textAlign: 'center', fontWeight: '200'}}>
 					Clean Water
 				</Text>
+				<Button
+					style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					onPress={() => _navigateToProfile()}
+					textStyle={{fontSize: 18}}>
+					Profile
+				</Button>
 				<Button
 					style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
 					onPress={() => _navigateToWelcome()}
@@ -71,7 +84,12 @@ export default class water extends Component {
 			},
 			{
 				title: 'Main Application',
-				index: 3},
+				index: 3
+			},
+			{
+				title: 'Profile',
+				index: 4
+			},
 		];
 
 		const renderScene = (route, navigator) => {
@@ -83,6 +101,8 @@ export default class water extends Component {
 				return <Registration navigator={navigator}></Registration>
 			} else if (route.index === 3) {
 				return <Main navigator={navigator}></Main>
+			} else if (route.index === 4) {
+				return <Profile navigator={navigator}></Profile>
 			}
 		};
 
