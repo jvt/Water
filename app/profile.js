@@ -18,7 +18,7 @@ export class Profile extends Component {
 		super(props);
 
 		this.state = {
-			Email: null,
+			Email: "test@gmail.com",
 			Role: null,
 			HomeAddress: null,
 			Title: null
@@ -46,7 +46,37 @@ export class Profile extends Component {
 							</Text>
 						</View>
 						<View style={styles.card} elevation={1}>
-							
+						        <Text
+                                                                style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
+                                                                Email: 
+                                                        </Text>
+                                                        <TextInput
+                                                            style={{height: 40}}
+                                                            value={this.state.Email}
+                                                            onChangeText={(Email) => this.setState({Email})}
+                                                        />
+						</View>
+						<View style={styles.card} elevation={1}>
+						        <Text
+                                                                style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
+                                                                Home Address:
+                                                        </Text>
+                                                        <TextInput
+                                                            style={{height: 40}}
+                                                            value={this.state.HomeAddress} 
+                                                            onChangeText={(HomeAddress) => this.setState({HomeAddress})}
+                                                        />
+						</View>
+						<View style={styles.card} elevation={1}>
+						        <Text
+                                                                style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
+                                                                Role:
+                                                        </Text>
+                                                        <TextInput
+                                                            style={{height: 40}}
+                                                            value={this.state.Role}
+                                                            onChangeText={(Role) => this.setState({Role})}
+                                                        />
 						</View>
 						<View style={styles.card} elevation={1}>
 							<Button
