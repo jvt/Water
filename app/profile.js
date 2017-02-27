@@ -79,6 +79,17 @@ export class Profile extends Component {
                                                         />
 						</View>
 						<View style={styles.card} elevation={1}>
+						        <Text
+                                                                style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
+                                                                Title: 
+                                                        </Text>
+                                                        <TextInput
+                                                            style={{height: 40}}
+                                                            value={this.state.Title}
+                                                            onChangeText={(Title) => this.setState({Title})}
+                                                        />
+						</View>
+						<View style={styles.card} elevation={1}>
 							<Button
 								style={{backgroundColor: 'rgba(63, 209, 127, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
 								onPress={() => _navigateBack()}
