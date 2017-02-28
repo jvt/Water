@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+	AsyncStorage,
 	View,
 	Alert,
 	Image,
@@ -46,6 +47,13 @@ export class Login extends Component {
 				.then((res) => {
 					if (res && res.status === 'success' && res.auth === true) {
 						console.info('Successful login attempt');
+						try {
+							AsyncStorage.setItem('@water2340:userID', res.userData.id);
+							AsyncStorage.setItem('@water2340:userToken', res.userData.authToken);
+						} catch (error) {
+							console.error('An error occurred while storing that login data');
+							console.error(error);
+						}
 						this.props.navigator.replacePreviousAndPop({index: 3});
 					} else {
 						loaderHandler.hideLoader();
