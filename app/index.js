@@ -21,6 +21,8 @@ import Profile from './profile';
 export class Main extends Component {
 	render() {
 		const _navigateToWelcome = () => {
+			AsyncStorage.removeItem('@water2340:userID');
+			AsyncStorage.removeItem('@water2340:userToken');
 			this.props.navigator.resetTo({
 				index: 0
 			});
