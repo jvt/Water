@@ -13,6 +13,49 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white',
 		flex: 1
 	},
+	header: {
+		backgroundColor: 'white',
+		padding: 10,
+		flex: 1,
+		flexDirection: 'row',
+		shadowColor: '#000000',
+		justifyContent: 'center',
+		shadowOpacity: 1,
+		shadowRadius: 2,
+		shadowOffset: {
+			height: 4,
+			width: 0
+		}
+	},
+	header_item: {
+		paddingLeft: 10,
+		paddingRight: 10,
+	    alignSelf: 'stretch',
+		justifyContent: 'center'
+	},
+	header_text: {
+		color: '#000',
+		fontWeight: 'bold',
+		justifyContent: 'center',
+		fontSize: 18
+	},
+	leftHeader: {
+		position: 'absolute',
+		width: 50,
+		borderWidth: 0,
+		top: 15,
+		left: -125,
+	},
+	rightHeader: {
+		position: 'absolute',
+		width: 50,
+		borderWidth: 0,
+		top: 15,
+		right: -125,
+	},
+	listBody: {
+		flex: 9
+	},
 	greyBackground: {
 		backgroundColor: 'rgba(240, 240, 240, 1)'
 	},
@@ -25,7 +68,7 @@ const styles = StyleSheet.create({
 		padding: 15,
 		borderRadius: 2,
 		shadowColor: '#000000',
-	    shadowOpacity: 0.1,
+		shadowOpacity: 0.1,
 		shadowRadius: 2,
 		shadowOffset: {
 			height: 4,

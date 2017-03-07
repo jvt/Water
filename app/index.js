@@ -19,6 +19,8 @@ import Registration from './registration';
 import Welcome from './initial';
 import Profile from './profile';
 import Main from './main';
+import ReportList from './report/list';
+import ReportNew from './report/new';
 
 export default class water extends Component {
 	constructor(props) {
@@ -70,6 +72,10 @@ export default class water extends Component {
 				return <Main navigator={navigator}></Main>
 			} else if (route.index === 4) {
 				return <Profile navigator={navigator}></Profile>
+			} else if (route.index === 5) {
+				return <ReportNew navigator={navigator}></ReportNew>
+			} else if (route.index === 6) {
+				return <ReportList navigator={navigator}></ReportList>
 			}
 		};
 

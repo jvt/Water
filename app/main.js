@@ -29,6 +29,18 @@ export class Main extends Component {
 			});
 		}
 
+		const _navigateToNewReport = () => {
+			this.props.navigator.push({
+				index: 5
+			});
+		}
+
+		const _navigateToAllReports = () => {
+			this.props.navigator.push({
+				index: 6
+			});
+		}
+
 		return (
 			<View style={styles.fullscreen}>
 				<View style={{alignItems: 'center'}}>
@@ -46,6 +58,18 @@ export class Main extends Component {
 					onPress={() => _navigateToProfile()}
 					textStyle={{fontSize: 18}}>
 					Profile
+				</Button>
+				<Button
+					style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					onPress={() => _navigateToNewReport()}
+					textStyle={{fontSize: 18}}>
+					New Report
+				</Button>
+				<Button
+					style={{backgroundColor: 'rgba(66, 190, 110, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					onPress={() => _navigateToAllReports()}
+					textStyle={{fontSize: 18}}>
+					Show All Reports
 				</Button>
 				<Button
 					style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
