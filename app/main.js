@@ -18,6 +18,7 @@ export class Main extends Component {
 		const _navigateToWelcome = () => {
 			AsyncStorage.removeItem('@water2340:userID');
 			AsyncStorage.removeItem('@water2340:userToken');
+			this.props.shouldSkipToApp = false;
 			this.props.navigator.resetTo({
 				index: 0
 			});
@@ -26,6 +27,12 @@ export class Main extends Component {
 		const _navigateToProfile = () => {
 			this.props.navigator.push({
 				index: 4
+			});
+		}
+
+		const _navigateToMap = () => {
+			this.props.navigator.push({
+				index: 7
 			});
 		}
 
@@ -54,25 +61,31 @@ export class Main extends Component {
 					Clean Water
 				</Text>
 				<Button
-					style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
 					onPress={() => _navigateToProfile()}
 					textStyle={{fontSize: 18}}>
 					Profile
 				</Button>
 				<Button
-					style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
 					onPress={() => _navigateToNewReport()}
 					textStyle={{fontSize: 18}}>
 					New Report
 				</Button>
 				<Button
-					style={{backgroundColor: 'rgba(66, 190, 110, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					style={{backgroundColor: 'rgba(66, 190, 110, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
 					onPress={() => _navigateToAllReports()}
 					textStyle={{fontSize: 18}}>
 					Show All Reports
 				</Button>
 				<Button
-					style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
+					style={{backgroundColor: 'rgba(66, 190, 110, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
+					onPress={() => _navigateToMap()}
+					textStyle={{fontSize: 18}}>
+					View Map
+				</Button>
+				<Button
+					style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
 					onPress={() => _navigateToWelcome()}
 					textStyle={{fontSize: 18}}>
 					Logout

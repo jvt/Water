@@ -9,6 +9,13 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: 'white'
 	},
+	absolute: {
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+	},
 	fullscreen: {
 		backgroundColor: 'white',
 		flex: 1
@@ -30,7 +37,7 @@ const styles = StyleSheet.create({
 	header_item: {
 		paddingLeft: 10,
 		paddingRight: 10,
-	    alignSelf: 'stretch',
+		alignSelf: 'stretch',
 		justifyContent: 'center'
 	},
 	header_text: {
@@ -74,6 +81,13 @@ const styles = StyleSheet.create({
 			height: 4,
 			width: 0
 		}
+	},
+	map: {
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0
 	},
 	paddedContainer: {
 		paddingTop: 50,

@@ -12,7 +12,7 @@
     "react": "15.4.2",
     "react-native": "0.41.2",
     "react-native-busy-indicator": "^1.0.9",
-    "react-native-maps": "^0.12.4",
+    "react-native-maps": "^0.13.0",
     "react-native-message-bar": "^1.6.0",
     "react-native-segmented-control-tab": "^2.0.1"
   },

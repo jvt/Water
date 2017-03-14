@@ -21,47 +21,99 @@ import Profile from './profile';
 import Main from './main';
 import ReportList from './report/list';
 import ReportNew from './report/new';
+import Map from './map';
+
+const routes = [
+	{
+		title: 'Welcome Screen',
+		index: 0
+	},
+	{
+		title: 'Login Screen',
+		index: 1
+	},
+	{
+		title: 'Register Screen',
+		index: 2
+	},
+	{
+		title: 'Main Application',
+		index: 3
+	},
+	{
+		title: 'Profile',
+		index: 4
+	},
+	{
+		title: 'Water Report',
+		index: 5
+	},
+	{
+		title: 'List Water Reports',
+		index: 6
+	},
+	{
+		title: 'Map',
+		index: 7
+	},
+];
 
 export default class water extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			initial: routes[0],
+			isLoading: true,
+			shouldSkipToApp: false
+		};
+
+		AsyncStorage.getItem('@water2340:userToken', function(e, token) {
+			updateLoading(false);
+			if (token) {
+				console.log(token);
+				console.log('User is already logged in');
+				updateInitialRoute(routes[3]);
+				updateShouldSkipToApp(true);
+			}
+			reRender();
+		});
+
+		const updateShouldSkipToApp = (value) => {
+			this.setState({
+				'shouldSkipToApp': value
+			});
+		}
+
+		const updateInitialRoute = (value) => {
+			this.setState({
+				'initial': value
+			});
+		}
+
+		const updateLoading = (value) => {
+			this.setState({
+				'isLoading': value
+			});
+		}
+
+		const reRender = () => {
+			console.log('re-rendering')
+			this.forceUpdate();
+		}
 	}
 
 	render() {
-		const routes = [
-			{
-				title: 'Welcome Screen',
-				index: 0
-			},
-			{
-				title: 'Login Screen',
-				index: 1
-			},
-			{
-				title: 'Register Screen',
-				index: 2
-			},
-			{
-				title: 'Main Application',
-				index: 3
-			},
-			{
-				title: 'Profile',
-				index: 4
-			},
-			{
-				title: 'Water Report',
-				index: 5
-			},
-			{
-				title: 'List Water Reports',
-				index: 6
-			},
-		];
 
 		const renderScene = (route, navigator) => {
+			if (this.state.isLoading) {
+				console.log('loading');
+				return <View style={[styles.container, styles.fullscreen]}></View>
+			}
+			if (this.state.shouldSkipToApp && route.index === 0) {
+				console.log('skipping to app');
+				return <Main navigator={navigator} shouldSkipToApp={this.state.shouldSkipToApp}></Main>
+			}
 			if (route.index === 0) {
 				return <Welcome navigator={navigator}></Welcome>
 			} else if (route.index === 1) {
@@ -69,19 +121,21 @@ export default class water extends Component {
 			} else if (route.index === 2) {
 				return <Registration navigator={navigator}></Registration>
 			} else if (route.index === 3) {
-				return <Main navigator={navigator}></Main>
+				return <Main navigator={navigator} shouldSkipToApp={this.state.shouldSkipToApp}></Main>
 			} else if (route.index === 4) {
 				return <Profile navigator={navigator}></Profile>
 			} else if (route.index === 5) {
 				return <ReportNew navigator={navigator}></ReportNew>
 			} else if (route.index === 6) {
 				return <ReportList navigator={navigator}></ReportList>
+			} else if (route.index === 7) {
+				return <Map navigator={navigator}></Map>
 			}
 		};
 
 		return (
 			<Navigator
-				initialRoute={routes[0]}
+				initialRoute={this.state.initial}
 				initialRouteStack={routes}
 				renderScene={renderScene}
 				configureScene={(route) => {
