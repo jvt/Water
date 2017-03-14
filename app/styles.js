@@ -89,6 +89,16 @@ const styles = StyleSheet.create({
 		right: 0,
 		bottom: 0
 	},
+	mapHeader: {
+		flex: 1,
+		position:'absolute',
+		top: 0,
+		left: 0,
+		right: 0,
+		zIndex: 1000,
+		height: 60,
+		backgroundColor: 'white'
+	},
 	paddedContainer: {
 		paddingTop: 50,
 		paddingBottom: 50
