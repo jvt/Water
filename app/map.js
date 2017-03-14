@@ -46,7 +46,7 @@ export class Map extends Component {
 						latitudeDelta: 0.0922,
 						longitudeDelta: 0.0421,
 					}}
-					styles={styles.map}
+					styles={styles.absolute}
 				/>
 			</View>
 		)
