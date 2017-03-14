@@ -7,6 +7,7 @@ import {
 	Navigator,
 	Text,
 	TextInput,
+	Dimensions,
 	ScrollView,
 	StyleSheet
 } from 'react-native';
@@ -38,7 +39,7 @@ export class Map extends Component {
 		}
 
 		return (
-			<View style={[styles.fullscreen, styles.greyBackground]}>
+			<View style={[styles.fullscreen, styles.greyBackground, styles.absolute]}>
 				<MapView
 					initialRegion={{
 						latitude: 37.78825,
@@ -46,7 +47,7 @@ export class Map extends Component {
 						latitudeDelta: 0.0922,
 						longitudeDelta: 0.0421,
 					}}
-					styles={styles.absolute}
+					style={styles.absolute}
 				/>
 			</View>
 		)
