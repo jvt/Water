@@ -66,8 +66,8 @@ export class Map extends Component {
 		pins.forEach(pin => {
 			id++;
 			formatted.push({
-				title: 'test',
-				description: 'testtt',
+				title: pin.type,
+				description: pin.condition,
 				key: id,
 				coordinate: {
 					latitude: pin.latitude,
@@ -115,6 +115,7 @@ export class Map extends Component {
 		this.addPins = this.addPins.bind(this)
 		this.loadNewPins = this.loadNewPins.bind(this)
 		this.onRegionChange = this.onRegionChange.bind(this)
+		this.onRegionChangeComplete = this.onRegionChangeComplete.bind(this)
 
 		const _navigateBack = () => {
 			this.props.navigator.pop();	
@@ -139,6 +140,7 @@ export class Map extends Component {
 					initialRegion={this.state.region}
 					region={this.state.region}
 					onRegionChange={this.onRegionChange}
+					onRegionChangeComplete={this.onRegionChangeComplete}
 					style={styles.absolute}
 					showsBuildings={false}
 					showsIndoors={false}
