@@ -86,7 +86,7 @@ export class ReportList extends Component {
 		return (
 			<TouchableHighlight underlayColor={"#E8E8E8"} style={styles.button}>
 				<View style={styles.card}>
-					<Text>Address: {report.address}</Text>
+					<Text>Location: {report.latitude}, {report.longitude}</Text>
 					<Text>Type: {report.type}</Text>
 					<Text>Condition: {report.condition}</Text>
 					<Text>Reported: {moment(new Date(report.created_at)).format('MMMM D, YYYY hh:mma')}</Text>
