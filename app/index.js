@@ -146,6 +146,7 @@ export default class water extends Component {
 				initialRouteStack={routes}
 				renderScene={renderScene}
 				configureScene={configureScene}
+				style={styles.absolute}
 			/>
 		)
 	}
