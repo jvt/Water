@@ -64,10 +64,11 @@ export class Map extends Component {
 	addPins(pins) {
 		let formatted = [];
 		pins.forEach(pin => {
+			id++;
 			formatted.push({
 				title: 'test',
 				description: 'testtt',
-				key: id++,
+				key: id,
 				coordinate: {
 					latitude: pin.latitude,
 					longitude: pin.longitude,
@@ -144,13 +145,13 @@ export class Map extends Component {
 					showsPointsOfInterest={false}
 				>
 				{this.state.markers.map(marker => (
-				    <MapView.Marker
-				      coordinate={marker.coordinate}
-				      title={marker.title}
-				      key={marker.key}
-				      description={marker.description}
-				    />
-				  ))}
+					<MapView.Marker
+						coordinate={marker.coordinate}
+						title={marker.title}
+						key={marker.key}
+						description={marker.description}
+					/>
+					))}
 				</MapView>
 			</View>
 		)
