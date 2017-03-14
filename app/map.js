@@ -25,6 +25,8 @@ const LONGITUDE = 72.8777;
 const LATITUDE_DELTA = 0.01;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
+let id = 0;
+
 export class Map extends Component {
 	constructor(props) {
 		super(props);
@@ -35,7 +37,8 @@ export class Map extends Component {
 				longitude: LONGITUDE,
 				latitudeDelta: LATITUDE_DELTA,
 				longitudeDelta: LONGITUDE_DELTA,
-			}
+			},
+			markers: []
 		};
 		navigator.geolocation.getCurrentPosition(
 			(position) => {
@@ -47,6 +50,7 @@ export class Map extends Component {
 						longitudeDelta: LONGITUDE_DELTA
 					}
 				});
+				this.loadNewPins();
 			},
 			(error) => alert(error.message),
 			{
@@ -57,10 +61,59 @@ export class Map extends Component {
 		);
 	}
 
+	addPins(pins) {
+		let formatted = [];
+		pins.forEach(pin => {
+			formatted.push({
+				title: 'test',
+				description: 'testtt',
+				key: id++,
+				coordinate: {
+					latitude: pin.latitude,
+					longitude: pin.longitude,
+				}
+			});
+		});
+		this.setState({
+			markers: formatted
+		});
+	}
+
+	loadNewPins() {
+		// console.log('Loading pins for %f %f', this.state.region.latitude, this.state.region.longitude);
+		return fetch('https://water.joetorraca.com/api/reports/location?lat=' + this.state.region.latitude + '&long=' + this.state.region.longitude,
+			{
+				method: 'GET',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			})
+			.then((response) => response.json())
+			.then((res) => {
+				if (!res || res.status !== 'success') {
+					return Alert.alert('A networking error has occurred.');
+				}
+
+				this.addPins(res.reports);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}
+
+	onRegionChange(region) {
+		this.setState({ region });
+	}
+
+	onRegionChangeComplete(region) {
+		this.loadNewPins();
+	}
+
 	render() {
-		const onRegionChange = region => {
-			this.setState({ region });
-		}
+		this.addPins = this.addPins.bind(this)
+		this.loadNewPins = this.loadNewPins.bind(this)
+		this.onRegionChange = this.onRegionChange.bind(this)
 
 		const _navigateBack = () => {
 			this.props.navigator.pop();	
@@ -86,7 +139,19 @@ export class Map extends Component {
 					region={this.state.region}
 					onRegionChange={this.onRegionChange}
 					style={styles.absolute}
-				/>
+					showsBuildings={false}
+					showsIndoors={false}
+					showsPointsOfInterest={false}
+				>
+				{this.state.markers.map(marker => (
+				    <MapView.Marker
+				      coordinate={marker.coordinate}
+				      title={marker.title}
+				      key={marker.key}
+				      description={marker.description}
+				    />
+				  ))}
+				</MapView>
 			</View>
 		)
 	}
