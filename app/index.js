@@ -133,17 +133,19 @@ export default class water extends Component {
 			}
 		};
 
+		const configureScene = (route) => {
+			if (route.index === 1 || route.index === 2) {
+				return Navigator.SceneConfigs.VerticalUpSwipeJump;
+			}
+			return Navigator.SceneConfigs.PushFromRight;
+		}
+
 		return (
 			<Navigator
 				initialRoute={this.state.initial}
 				initialRouteStack={routes}
 				renderScene={renderScene}
-				configureScene={(route) => {
-					if (route.index === 1 || route.index === 2) {
-						return Navigator.SceneConfigs.VerticalUpSwipeJump;
-					}
-					return Navigator.SceneConfigs.PushFromRight;
-				}}
+				configureScene={}
 			/>
 		)
 	}
