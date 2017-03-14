@@ -25,7 +25,8 @@ export class ReportNew extends Component {
 		super(props);
 
 		this.state = {
-			Address: '',
+			Latitude: '',
+			Longitude: '',
 			UserID: '',
 			Condition: '',
 			Type: ''
@@ -70,7 +71,8 @@ export class ReportNew extends Component {
 						userID: this.state.UserID,
 						condition: this.state.Condition,
 						type: this.state.Type,
-						address: this.state.Address
+						latitude: this.state.Latitude,
+						longitude: this.state.Longitude
 					})
 				})
 				.then((response) => response.json())
@@ -115,8 +117,14 @@ export class ReportNew extends Component {
 					</Text>
 					<TextInput
 						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20}}
-						onChangeText={(Address) => this.setState({Address})}
-						placeholder='Address'
+						onChangeText={(Latitude) => this.setState({Latitude})}
+						placeholder='Latitude'
+						returnKeyType='next'
+					/>
+					<TextInput
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
+						onChangeText={(Longitude) => this.setState({Longitude})}
+						placeholder='Longitude'
 						returnKeyType='next'
 					/>
 					<TextInput
