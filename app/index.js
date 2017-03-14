@@ -145,7 +145,7 @@ export default class water extends Component {
 				initialRoute={this.state.initial}
 				initialRouteStack={routes}
 				renderScene={renderScene}
-				configureScene={}
+				configureScene={configureScene}
 			/>
 		)
 	}
