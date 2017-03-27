@@ -6,6 +6,7 @@ import {
 	Image,
 	Navigator,
 	Text,
+	Picker,
 	TextInput,
 	ScrollView,
 	StyleSheet
@@ -14,6 +15,8 @@ import {
 import styles from '../styles';
 import Button from 'apsl-react-native-button';
 import BusyIndicator from 'react-native-busy-indicator';
+
+import ModalPicker from 'react-native-modal-picker'
 
 let MessageBarAlert = require('react-native-message-bar').MessageBar;
 let MessageBarManager = require('react-native-message-bar').MessageBarManager;
@@ -39,19 +42,13 @@ export class ReportNew extends Component {
 				console.log(e);
 			} else {
 				let _parsed = JSON.parse(user);
-				setUID(_parsed.id);
-				setRole(_parsed.role);
+				setUserData(_parsed.id, _parsed.role);
 			}
 		});
 
-		const setUID = uid => {
+		const setUserData = (uid, role) => {
 			this.setState({
-				UserID: uid
-			});
-		}
-
-		const setRole = role => {
-			this.setState({
+				UserID: uid,
 				Role: role
 			});
 		}
@@ -85,6 +82,7 @@ export class ReportNew extends Component {
 				})
 				.then((response) => response.json())
 				.then((res) => {
+					console.log('Got response');
 					if (res && res.status === 'success') {
 						console.info('New report created');
 						this.props.navigator.pop();
@@ -108,11 +106,53 @@ export class ReportNew extends Component {
 					console.error(error);
 				});
 		}
+		let i = 0;
+		const waterSources = [
+			{
+				key: i++,
+				label: 'Bottled'
+			},
+			{
+				key: i++,
+				label: 'Lake'
+			},
+			{
+				key: i++,
+				label: 'Well'
+			},
+			{
+				key: i++,
+				label: 'Stream'
+			},
+			{
+				key: i++,
+				label: 'Spring'
+			}
+		];
+		let j = 0;
+		const conditions = [
+			{
+				key: j++,
+				label: 'Waste'
+			},
+			{
+				key: j++,
+				label: 'Treatable-Clear'
+			},
+			{
+				key: j++,
+				label: 'Treatable-Muddy'
+			},
+			{
+				key: j++,
+				label: 'Potable'
+			}
+		];
 
 		return (
 			<View style={styles.fullscreen}>
 				<MessageBarAlert ref="alert"></MessageBarAlert>
-		        <ScrollView keyboardDismissMode='on-drag'>
+				<ScrollView keyboardDismissMode='on-drag'>
 					<View style={{alignItems: 'center'}}>
 						<Image
 							style={{width: 80, height: 175}}
@@ -124,29 +164,28 @@ export class ReportNew extends Component {
 						New Water Report
 					</Text>
 					<TextInput
-						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20}}
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20, borderRadius: 5}}
 						onChangeText={(Latitude) => this.setState({Latitude})}
 						placeholder='Latitude'
 						returnKeyType='next'
 					/>
 					<TextInput
-						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20, borderRadius: 5}}
 						onChangeText={(Longitude) => this.setState({Longitude})}
 						placeholder='Longitude'
 						returnKeyType='next'
 					/>
-					<TextInput
-						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
-						onChangeText={(Type) => this.setState({Type})}
-						placeholder='Type'
-						returnKeyType='next'
-					/>
-					<TextInput
-						style={{height: 40, borderColor: 'gray', borderWidth: 1, padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20}}
-						onChangeText={(Condition) => this.setState({Condition})}
-						placeholder='Condition'
-						returnKeyType='go'
-					/>
+					<ModalPicker
+						data={waterSources}
+						style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
+						initValue="Water Type"
+						onChange={(Type) => this.setState({Type: Type.label}) } />
+
+					<ModalPicker
+						data={conditions}
+						style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
+						initValue="Water Condition"
+						onChange={(Condition) => this.setState({Condition: Condition.label}) } />
 					<Button
 						style={{backgroundColor: 'rgba(65, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
 						onPress={() => submitReport()}
@@ -159,7 +198,7 @@ export class ReportNew extends Component {
 						textStyle={{fontSize: 18}}>
 						Cancel
 					</Button>
-		        </ScrollView>
+				</ScrollView>
 				<BusyIndicator />
 			</View>
 		)
