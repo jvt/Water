@@ -68,10 +68,11 @@ export default class water extends Component {
 			shouldSkipToApp: false
 		};
 
-		AsyncStorage.getItem('@water2340:userToken', function(e, token) {
+		AsyncStorage.getItem('@water2340:user', function(e, user) {
 			updateLoading(false);
-			if (token) {
-				console.log(token);
+			if (user) {
+				let _parsed = JSON.parse(user);
+				console.log(_parsed);
 				console.log('User is already logged in');
 				updateInitialRoute(routes[3]);
 				updateShouldSkipToApp(true);

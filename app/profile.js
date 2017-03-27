@@ -31,13 +31,11 @@ export class Profile extends Component {
 			Title: null
 		};
 
-		AsyncStorage.getItem('@water2340:userToken', function(e, token) {
-			if (!token) Alert.alert('A fatal internal error has occurred');
-			AsyncStorage.getItem('@water2340:userID', function(e, uID) {
-				if (!uID) Alert.alert('A fatal internal error has occurred');
-				setTokenAndID(uID, token);
-				loadUserData(uID, token);
-			});
+		AsyncStorage.getItem('@water2340:user', function(e, user) {
+			if (!user) Alert.alert('A fatal internal error has occurred');
+			let _parsed = JSON.parse(user);
+			setTokenAndID(_parsed.id, _parsed.authToken);
+			loadUserData(_parsed.id, _parsed.authToken);
 		});
 
 		const setTokenAndID = (uid, token) => {

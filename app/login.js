@@ -48,8 +48,7 @@ export class Login extends Component {
 					if (res && res.status === 'success' && res.auth === true) {
 						console.info('Successful login attempt');
 						try {
-							AsyncStorage.setItem('@water2340:userID', res.userData.id.toString());
-							AsyncStorage.setItem('@water2340:userToken', res.userData.authToken);
+							AsyncStorage.setItem('@water2340:user', JSON.stringify(res.userData));
 						} catch (error) {
 							console.error('An error occurred while storing that login data');
 							console.error(error);

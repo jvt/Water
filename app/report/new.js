@@ -28,22 +28,31 @@ export class ReportNew extends Component {
 			Latitude: '',
 			Longitude: '',
 			UserID: '',
+			Role: '',
 			Condition: '',
 			Type: ''
 		};
 
-		AsyncStorage.getItem('@water2340:userID', function(e, userID) {
+		AsyncStorage.getItem('@water2340:user', function(e, user) {
 			if (e) {
-				console.log('Error loading userID from storage');
+				console.log('Error loading user from storage');
 				console.log(e);
 			} else {
-				setUID(userID);				
+				let _parsed = JSON.parse(user);
+				setUID(_parsed.id);
+				setRole(_parsed.role);
 			}
 		});
 
 		const setUID = uid => {
 			this.setState({
 				UserID: uid
+			});
+		}
+
+		const setRole = role => {
+			this.setState({
+				Role: role
 			});
 		}
 	}
@@ -57,7 +66,6 @@ export class ReportNew extends Component {
 	}
 
 	render() {
-
 		const submitReport = () => {
 			loaderHandler.showLoader("Loading");
 			return fetch('https://water.joetorraca.com/api/reports',

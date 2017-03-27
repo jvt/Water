@@ -16,8 +16,7 @@ import Button from 'apsl-react-native-button';
 export class Main extends Component {
 	render() {
 		const _navigateToWelcome = () => {
-			AsyncStorage.removeItem('@water2340:userID');
-			AsyncStorage.removeItem('@water2340:userToken');
+			AsyncStorage.removeItem('@water2340:user');
 			this.props.shouldSkipToApp = false;
 			this.props.navigator.resetTo({
 				index: 0
