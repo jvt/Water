@@ -82,6 +82,15 @@ const styles = StyleSheet.create({
 			width: 0
 		}
 	},
+	noCardMargin: {
+		marginLeft: 0,
+		marginRight: 0,
+		marginTop: 0,
+		marginBottom: 0
+	},
+	reportElement: {
+		marginBottom: 10
+	},
 	map: {
 		position: 'absolute',
 		top: 0,
