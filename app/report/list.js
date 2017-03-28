@@ -115,8 +115,6 @@ export class ReportList extends Component {
 
 	_onPressRow(_this, row, obj) {
 		console.log('Will show row quality report');
-		console.log(row);
-		console.log(_this.state.user.role);
 		if (Number(_this.state.user.role) > 0) {
 			_this.props.navigator.push({
 				index: 8,
