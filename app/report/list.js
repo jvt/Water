@@ -63,11 +63,17 @@ export class ReportList extends Component {
 				</View>
 				<View style={[styles.listBody, styles.greyBackground]}>
 					<ScrollView ref="scrollView">
-					{
-						this.state.loaded && 
-						<ListView initialListSize={1} dataSource={this.state.reports} style={styles.reports} renderRow={this.renderReports}></ListView>
-						 
-					}
+						<View style={{padding: 10}}>
+						{
+							this.state.loaded && 
+							<ListView
+								initialListSize={1}
+								dataSource={this.state.reports}
+								renderRow={this._renderRow.bind(this)}
+							/>
+							 
+						}
+						</View>
 					</ScrollView>
 				</View>
 			</View>
@@ -82,10 +88,10 @@ export class ReportList extends Component {
 		this.getReports();
 	}
 
-	renderReports(report) {
+	_renderRow(report: string, sectionID: number, rowID: number) {
 		return (
-			<TouchableHighlight underlayColor={"#E8E8E8"} style={styles.button}>
-				<View style={styles.card}>
+			<TouchableHighlight underlayColor={"#E8E8E8"} style={styles.reportElement} onPress={this._onPressRow.bind(this.rowData, this, report)}>
+				<View style={[styles.card, styles.noCardMargin]}>
 					<Text>Location: {report.latitude}, {report.longitude}</Text>
 					<Text>Type: {report.type}</Text>
 					<Text>Condition: {report.condition}</Text>
@@ -94,6 +100,15 @@ export class ReportList extends Component {
 				</View>
 			</TouchableHighlight>
 		);
+	}
+
+	_onPressRow(_this, row, obj) {
+		console.log('Will show row quality report');
+		console.log(row);
+		_this.props.navigator.push({
+			index: 8,
+			data: row
+		});
 	}
 
 	updateListUI(reports) {

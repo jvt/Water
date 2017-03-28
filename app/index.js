@@ -21,6 +21,8 @@ import Profile from './profile';
 import Main from './main';
 import ReportList from './report/list';
 import ReportNew from './report/new';
+import QualityReportShow from './qualityReport/show';
+import QualityReportNew from './qualityReport/new';
 import Map from './map';
 
 const routes = [
@@ -55,6 +57,14 @@ const routes = [
 	{
 		title: 'Map',
 		index: 7
+	},
+	{
+		title: 'Water Condition',
+		index: 8
+	},
+	{
+		title: 'New Water Condition',
+		index: 9
 	},
 ];
 
@@ -131,6 +141,10 @@ export default class water extends Component {
 				return <ReportList navigator={navigator}></ReportList>
 			} else if (route.index === 7) {
 				return <Map navigator={navigator}></Map>
+			} else if (route.index === 8) {
+				return <QualityReportShow navigator={navigator} data={route.data}></QualityReportShow>
+			} else if (route.index === 9) {
+				return <QualityReportNew navigator={navigator} data={route.data}></QualityReportNew>
 			}
 		};
 

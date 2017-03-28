@@ -53,12 +53,26 @@ const styles = StyleSheet.create({
 		top: 15,
 		left: -125,
 	},
+	leftHeader2: {
+		position: 'absolute',
+		width: 50,
+		borderWidth: 0,
+		top: 15,
+		left: -100,
+	},
 	rightHeader: {
 		position: 'absolute',
 		width: 50,
 		borderWidth: 0,
 		top: 15,
 		right: -125,
+	},
+	rightHeader2: {
+		position: 'absolute',
+		width: 50,
+		borderWidth: 0,
+		top: 15,
+		right: -100,
 	},
 	listBody: {
 		flex: 9
