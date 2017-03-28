@@ -81,6 +81,7 @@ export class Profile extends Component {
 		}
 
 		const _saveChanges = () => {
+			let $t = this.state;
 			loaderHandler.showLoader();
 			return fetch('https://water.joetorraca.com/api/user/update', {
 				method: 'POST',
@@ -103,6 +104,17 @@ export class Profile extends Component {
 					return Alert.alert('A networking error has occurred.');
 				}
 				Alert.alert('Successfully updated your account data');
+
+				AsyncStorage.getItem('@water2340:user', function(e, user) {
+					console.log(user);
+					let u = JSON.parse(user);
+					u.username = $t.Username;
+					u.role = $t.Role;
+					AsyncStorage.setItem('@water2340:user', JSON.stringify(u));
+					AsyncStorage.getItem('@water2340:user', function(e, user2) {
+						console.log(user2);
+					});
+				});
 			})
 			.catch((error) => {
 				console.error(error);
