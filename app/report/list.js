@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+	AsyncStorage,
 	View,
 	Alert,
 	Image,
@@ -26,8 +27,18 @@ export class ReportList extends Component {
 				rowHasChanged: (row1, row2) => row1 !== row2,
 			}),
 			reports: {},
-			loaded: false
+			loaded: false,
+			user: {}
 		};
+
+		AsyncStorage.getItem('@water2340:user', function(e, user) {
+			let _parsed = JSON.parse(user);
+			updateUser(_parsed);
+		});
+
+		const updateUser = user => {
+			this.setState({user: user})
+		}
 	}
 
 	render() {
@@ -105,10 +116,15 @@ export class ReportList extends Component {
 	_onPressRow(_this, row, obj) {
 		console.log('Will show row quality report');
 		console.log(row);
-		_this.props.navigator.push({
-			index: 8,
-			data: row
-		});
+		console.log(_this.state.user.role);
+		if (Number(_this.state.user.role) > 0) {
+			_this.props.navigator.push({
+				index: 8,
+				data: row
+			});
+		} else {
+			Alert.alert('You do not have permission to view that.');
+		}
 	}
 
 	updateListUI(reports) {
