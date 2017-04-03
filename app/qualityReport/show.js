@@ -25,11 +25,13 @@ import moment from 'moment';
 
 const loaderHandler = require('react-native-busy-indicator/LoaderHandler');
 
-const data = [[
-    [0,1],
-    [1,3],
-    [3,7],
-]];
+
+const data = [
+          [1, 1],
+          [2, 3],
+          [3, 7],
+          [4, 9],
+];
 
 export class QualityReportShow extends Component {
 	constructor(props) {
@@ -58,9 +60,8 @@ export class QualityReportShow extends Component {
 
 		const updateUser = user => {
 			this.setState({user: user})
-		}
-
-	}
+		}    
+        }
 
 	render() {
 		const _navigateToNewQualityReport = () => {
@@ -97,10 +98,9 @@ export class QualityReportShow extends Component {
                                     <Chart
                                             style={styles.chart}
                                             data={data}
-                                            verticalGridStep={5}
                                             type="line"
                                             showDataPoint={true}
-                                            color={['#e1cd00']}
+                                            color={'#e1cd00'}
                                     />
                                 </View>
 				<View style={[styles.listBody, styles.greyBackground]}>
