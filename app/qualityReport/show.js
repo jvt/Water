@@ -16,6 +16,7 @@ import {
 import styles from '../styles';
 import Button from 'apsl-react-native-button';
 import BusyIndicator from 'react-native-busy-indicator';
+import Chart from 'react-native-chart';
 
 let MessageBarAlert = require('react-native-message-bar').MessageBar;
 let MessageBarManager = require('react-native-message-bar').MessageBarManager;
@@ -23,6 +24,12 @@ let MessageBarManager = require('react-native-message-bar').MessageBarManager;
 import moment from 'moment';
 
 const loaderHandler = require('react-native-busy-indicator/LoaderHandler');
+
+const data = [[
+    [0,1],
+    [1,3],
+    [3,7],
+]];
 
 export class QualityReportShow extends Component {
 	constructor(props) {
@@ -86,6 +93,16 @@ export class QualityReportShow extends Component {
 						<Text style={styles.header_text}>Water Condition</Text>
 					</View>
 				</View>
+                                <View style={styles.container}>
+                                    <Chart
+                                            style={styles.chart}
+                                            data={data}
+                                            verticalGridStep={5}
+                                            type="line"
+                                            showDataPoint={true}
+                                            color={['#e1cd00']}
+                                    />
+                                </View>
 				<View style={[styles.listBody, styles.greyBackground]}>
 					<ScrollView ref="scrollView">
 						<View style={{padding: 10}}>

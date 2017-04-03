@@ -125,7 +125,11 @@ const styles = StyleSheet.create({
 	paddedContainer: {
 		paddingTop: 50,
 		paddingBottom: 50
-	}
+	},
+        chart: {
+            width: 200,
+            height: 200,
+        },
 });
 
 module.exports = styles;
