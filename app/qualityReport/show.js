@@ -27,10 +27,7 @@ const loaderHandler = require('react-native-busy-indicator/LoaderHandler');
 
 
 const data = [
-          [1, 1],
-          [2, 3],
-          [3, 7],
-          [4, 9],
+    [0,0]
 ];
 
 export class QualityReportShow extends Component {
@@ -60,7 +57,7 @@ export class QualityReportShow extends Component {
 
 		const updateUser = user => {
 			this.setState({user: user})
-		}    
+		}
         }
 
 	render() {
@@ -145,6 +142,7 @@ export class QualityReportShow extends Component {
 
 	componentDidMount() {
 		this.getReportCondition();
+                this.getHistoryReport();
 	}
 
 	_renderRow(report: string, sectionID: number, rowID: number) {
@@ -182,6 +180,46 @@ export class QualityReportShow extends Component {
 				if (res && res.status === 'success') {
 					conditions = res.conditions;
 					this.updateListUI(conditions);
+				} else {
+					if (res.messages.length > 0) {
+						console.log('An error occurred with loading condition history!');
+						console.log(res.messages);
+						Alert.alert(res.messages[0]);
+					} else {
+						Alert.alert('An unexpected error occurred. Please try again.');
+					}
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}
+
+        createDataPoints(conditionCode) {
+                data.pop();
+                for (let i = 0; i < conditionCode.length; i++)
+                {
+                    let temp = [i, conditionCode[i].conditionCode];
+                    data.push(temp);
+                }
+        }
+                                    
+	
+        getHistoryReport() {
+		let conditionCode = [];
+		fetch('https://water.joetorraca.com/api/reports/'+ this.state.id +'/history',
+			{
+				method: 'GET',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			})
+			.then((response) => response.json())
+			.then((res) => {
+				if (res && res.status === 'success') {
+					conditionCode = res.reports;
+					this.createDataPoints(conditionCode);
 				} else {
 					if (res.messages.length > 0) {
 						console.log('An error occurred with loading condition history!');
