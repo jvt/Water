@@ -17,6 +17,7 @@ import styles from '../styles';
 import Button from 'apsl-react-native-button';
 import BusyIndicator from 'react-native-busy-indicator';
 import Chart from 'react-native-chart';
+import ModalPicker from 'react-native-modal-picker'
 
 let MessageBarAlert = require('react-native-message-bar').MessageBar;
 let MessageBarManager = require('react-native-message-bar').MessageBarManager;
@@ -48,6 +49,7 @@ export class QualityReportShow extends Component {
 			dataSource: new ListView.DataSource({
 				rowHasChanged: (row1, row2) => row1 !== row2,
 			}),
+                        Year: '2017'
 		};
 
 		AsyncStorage.getItem('@water2340:user', function(e, user) {
@@ -71,6 +73,17 @@ export class QualityReportShow extends Component {
 				}
 			});
 		}
+                let j = 0;
+                const year = [
+                    {
+                        key: j++,
+                        label: '2017'
+                    },
+                    {
+                        key: j++,
+                        label: '2018'
+                    }
+                ];
 
 		return (
 			<View style={styles.fullscreen}>
@@ -100,6 +113,14 @@ export class QualityReportShow extends Component {
                                             color={'#e1cd00'}
                                     />
                                 </View>
+                    <ScrollView keyboardDismissMode='on-drag'
+                                    keyboardShouldPersistTaps='always'>
+                                <ModalPicker
+                                    data={year}
+                                    style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
+                                    initValue="2017"
+                                    onChange={(Year) => this.setState({Year: Year.label})}/>
+                    </ScrollView>
 				<View style={[styles.listBody, styles.greyBackground]}>
 					<ScrollView ref="scrollView">
 						<View style={{padding: 10}}>
@@ -196,11 +217,18 @@ export class QualityReportShow extends Component {
 	}
 
         createDataPoints(conditionCode) {
-                data.pop();
+                for(let x = 0; x < data.length; x++)
+            {
+                    data.pop();
+            }
+                let h = 0;
                 for (let i = 0; i < conditionCode.length; i++)
                 {
-                    let temp = [i, conditionCode[i].conditionCode];
+                    if(conditionCode[i].date.substring(0,4) === this.state.Year)
+                    {
+                    let temp = [h++, conditionCode[i].conditionCode];
                     data.push(temp);
+                    }
                 }
         }
                                     
