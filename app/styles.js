@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
 	},
         chart: {
             width: 200,
-            height: 500,
+            height: 250,
         },
 });
 

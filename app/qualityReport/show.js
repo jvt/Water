@@ -87,6 +87,7 @@ export class QualityReportShow extends Component {
 
 		return (
 			<View style={styles.fullscreen}>
+                            <ScrollView keyboardDismissMode='on-drag'>
 				<View style={styles.header}>
 					<View style={styles.header_item}>
 						<Button
@@ -113,14 +114,11 @@ export class QualityReportShow extends Component {
                                             color={'#e1cd00'}
                                     />
                                 </View>
-                    <ScrollView keyboardDismissMode='on-drag'
-                                    keyboardShouldPersistTaps='always'>
                                 <ModalPicker
                                     data={year}
                                     style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
                                     initValue="2017"
                                     onChange={(Year) => this.setState({Year: Year.label})}/>
-                    </ScrollView>
 				<View style={[styles.listBody, styles.greyBackground]}>
 					<ScrollView ref="scrollView">
 						<View style={{padding: 10}}>
@@ -152,6 +150,7 @@ export class QualityReportShow extends Component {
 						</View>
 					</ScrollView>
 				</View>
+                            </ScrollView>
 			</View>
 		)
 	}
@@ -218,16 +217,16 @@ export class QualityReportShow extends Component {
 
         createDataPoints(conditionCode) {
                 for(let x = 0; x < data.length; x++)
-            {
+                {
                     data.pop();
-            }
+                }
                 let h = 0;
                 for (let i = 0; i < conditionCode.length; i++)
                 {
                     if(conditionCode[i].date.substring(0,4) === this.state.Year)
                     {
-                    let temp = [h++, conditionCode[i].conditionCode];
-                    data.push(temp);
+                        let temp = [h++, conditionCode[i].conditionCode];
+                        data.push(temp);
                     }
                 }
         }
