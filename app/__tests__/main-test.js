@@ -1,8 +1,8 @@
 jest.disableAutomock();
 
-const React = require('React');
-const Renderer = require('react-test-renderer');
-const Button = require('Button');
+import React from 'react';
+import Renderer from 'react-test-renderer';
+import Button from 'Button'
 
 describe('ProfileButton', () => {
     it('renders correctly', () => {
