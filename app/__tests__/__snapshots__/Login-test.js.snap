@@ -1,0 +1,4 @@
+exports[`UsernameField renders correctly 1`] = `
+<TextInput
+  style={Object {}} />
+`;
