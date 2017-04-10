@@ -1,3 +1,112 @@
+exports[`CancelButton renders correctly 1`] = `
+<View
+  accessibilityComponentType="button"
+  accessibilityLabel={undefined}
+  accessibilityTraits={
+    Array [
+      "button",
+    ]
+  }
+  accessible={true}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {},
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#0C42FD",
+            "fontSize": 18,
+            "padding": 8,
+            "textAlign": "center",
+          },
+        ]
+      }>
+      Return
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`LoginButton renders correctly 1`] = `
+<View
+  accessibilityComponentType="button"
+  accessibilityLabel={undefined}
+  accessibilityTraits={
+    Array [
+      "button",
+    ]
+  }
+  accessible={true}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <View
+    style={
+      Array [
+        Object {},
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#0C42FD",
+            "fontSize": 18,
+            "padding": 8,
+            "textAlign": "center",
+          },
+        ]
+      }>
+      Login
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`PasswordField renders correctly 1`] = `
+<TextInput
+  style={Object {}} />
+`;
+
 exports[`UsernameField renders correctly 1`] = `
 <TextInput
   style={Object {}} />
