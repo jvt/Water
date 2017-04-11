@@ -15,5 +15,46 @@ describe('Login', () => {
         ).toJSON();
         expect(login).toMatchSnapshot();
     });
-});
 
+    test('UsernameField', ()  => {
+        const instance = Renderer.create(
+            <TextInput
+            Style={{}}
+            />
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
+    });
+
+    test('PasswordField', () => {
+        const instance = Renderer.create(
+            <TextInput
+            Style={{}}
+            />
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
+    });
+
+    test('LoginButton', () => {
+        const instance = Renderer.create(
+            <Button
+            Style={{}}>
+            Login
+            </Button>
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
+    });
+
+    test('ReturnButton', () => {
+        const instance = Renderer.create(
+            <Button
+            Style={{}}>
+            Return
+            </Button>
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
+    });
+});
