@@ -1,35 +1,72 @@
-exports[`LogoutButton renders correctly 1`] = `
+exports[`test renders correctly 1`] = `
 <View
-  accessibilityComponentType="button"
-  accessibilityLabel={undefined}
-  accessibilityTraits={
-    Array [
-      "button",
-    ]
-  }
-  accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "backgroundColor": "white",
+      "flex": 1,
     }
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}>
+  }>
   <View
     style={
-      Array [
-        Object {},
-      ]
+      Object {
+        "alignItems": "center",
+      }
     }>
+    <Image
+      source={1}
+      style={
+        Object {
+          "height": 175,
+          "width": 80,
+        }
+      } />
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 20,
+        "fontWeight": "200",
+        "textAlign": "center",
+      }
+    }>
+    Clean Water
+  </Text>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "rgba(66, 163, 221, 1)",
+        "borderRadius": 8,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 44,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -37,155 +74,52 @@ exports[`LogoutButton renders correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#0C42FD",
+            "backgroundColor": "transparent",
+            "flex": 1,
             "fontSize": 18,
-            "padding": 8,
             "textAlign": "center",
           },
-        ]
-      }>
-      Logout
-    </Text>
-  </View>
-</View>
-`;
-
-exports[`NewReportButton renders correctly 1`] = `
-<View
-  accessibilityComponentType="button"
-  accessibilityLabel={undefined}
-  accessibilityTraits={
-    Array [
-      "button",
-    ]
-  }
-  accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}>
-  <View
-    style={
-      Array [
-        Object {},
-      ]
-    }>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
           Object {
-            "color": "#0C42FD",
             "fontSize": 18,
-            "padding": 8,
-            "textAlign": "center",
-          },
-        ]
-      }>
-      NewReport
-    </Text>
-  </View>
-</View>
-`;
-
-exports[`ProfileButton renders correctly 1`] = `
-<View
-  accessibilityComponentType="button"
-  accessibilityLabel={undefined}
-  accessibilityTraits={
-    Array [
-      "button",
-    ]
-  }
-  accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}>
-  <View
-    style={
-      Array [
-        Object {},
-      ]
-    }>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Array [
-          Object {
-            "color": "#0C42FD",
-            "fontSize": 18,
-            "padding": 8,
-            "textAlign": "center",
           },
         ]
       }>
       Profile
     </Text>
   </View>
-</View>
-`;
-
-exports[`ShowAllReportsButton renders correctly 1`] = `
-<View
-  accessibilityComponentType="button"
-  accessibilityLabel={undefined}
-  accessibilityTraits={
-    Array [
-      "button",
-    ]
-  }
-  accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {},
-      ]
-    }>
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "rgba(66, 163, 221, 1)",
+        "borderRadius": 8,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 44,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -193,51 +127,52 @@ exports[`ShowAllReportsButton renders correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#0C42FD",
+            "backgroundColor": "transparent",
+            "flex": 1,
             "fontSize": 18,
-            "padding": 8,
             "textAlign": "center",
+          },
+          Object {
+            "fontSize": 18,
           },
         ]
       }>
-      ShowAllReports
+      New Report
     </Text>
   </View>
-</View>
-`;
-
-exports[`ViewMapButton renders correctly 1`] = `
-<View
-  accessibilityComponentType="button"
-  accessibilityLabel={undefined}
-  accessibilityTraits={
-    Array [
-      "button",
-    ]
-  }
-  accessible={true}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}>
   <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {},
-      ]
-    }>
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "rgba(66, 190, 110, 1)",
+        "borderRadius": 8,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 44,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -245,14 +180,123 @@ exports[`ViewMapButton renders correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#0C42FD",
+            "backgroundColor": "transparent",
+            "flex": 1,
             "fontSize": 18,
-            "padding": 8,
             "textAlign": "center",
+          },
+          Object {
+            "fontSize": 18,
           },
         ]
       }>
-      ViewMap
+      Show All Reports
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "rgba(66, 190, 110, 1)",
+        "borderRadius": 8,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 44,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "flex": 1,
+            "fontSize": 18,
+            "textAlign": "center",
+          },
+          Object {
+            "fontSize": 18,
+          },
+        ]
+      }>
+      View Map
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "rgba(232, 88, 74, 1)",
+        "borderRadius": 8,
+        "borderWidth": 0,
+        "flexDirection": "row",
+        "height": 44,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 20,
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "flex": 1,
+            "fontSize": 18,
+            "textAlign": "center",
+          },
+          Object {
+            "fontSize": 18,
+          },
+        ]
+      }>
+      Logout
     </Text>
   </View>
 </View>

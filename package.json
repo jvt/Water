@@ -25,6 +25,9 @@
     "react-test-renderer": "15.4.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!apsl-react-native-button)/"
+    ]
   }
 }
