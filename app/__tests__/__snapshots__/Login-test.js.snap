@@ -1,3 +1,5 @@
+exports[`Login BusyIndicator 1`] = `<View />`;
+
 exports[`Login LoginButton 1`] = `
 <View
   accessibilityComponentType={undefined}

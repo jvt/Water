@@ -15,6 +15,7 @@ import {
 import styles from '../styles';
 import Button from 'apsl-react-native-button';
 import BusyIndicator from 'react-native-busy-indicator';
+import NumericInput from 'react-numeric-input';
 
 import ModalPicker from 'react-native-modal-picker'
 
@@ -30,8 +31,10 @@ export class QualityReportNew extends Component {
 		this.state = {
 			id: props.data.id,
 			user: props.data.user,
-			Condition: ''
-		};
+			Condition: '',
+                        virusPPM: '',
+                        contaminantPPM: '',
+                };
 	}
 
 	componentDidMount() {
@@ -74,7 +77,9 @@ export class QualityReportNew extends Component {
 						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({
-						condition: this.state.Condition
+						condition: this.state.Condition,
+                                                virusPPM: this.state.virusPPM,
+                                                contaminantPPM: this.state.contaminantPPM
 					})
 				})
 				.then((response) => response.json())
@@ -122,6 +127,18 @@ export class QualityReportNew extends Component {
 						style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
 						initValue="Water Condition"
 						onChange={(Condition) => this.setState({Condition: Condition.label}) } />
+                                        <TextInput
+                                            style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20, borderRadius: 5}}
+                                            onChangeText={(virusPPM) => this.setState({virusPPM})}
+                                            placeholder='VirusPPM'
+                                            returnKeyType='next'
+                                        />
+                                        <TextInput
+                                            style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20, borderRadius: 5}}
+                                            onChangeText={(contaminantPPM) => this.setState({contaminantPPM})}
+                                            placeholder='ContaminantPPM'
+                                            returnKeyType='next'
+                                        />
 					<Button
 						style={{backgroundColor: 'rgba(65, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 50}}
 						onPress={submitQualityReport}

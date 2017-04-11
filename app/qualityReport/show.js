@@ -171,6 +171,8 @@ export class QualityReportShow extends Component {
 				<View style={[styles.card, styles.noCardMargin]}>
 					<Text>Condition: {report.condition}</Text>
 					<Text>Reported: {moment(new Date(report.created_at)).format('MMMM D, YYYY hh:mma')}</Text>
+                                        <Text>VirusPPM: {report.virusPPM}</Text>
+                                        <Text>ContaminantPPM: {report.contaminantPPM}</Text>
 				</View>
 			</TouchableHighlight>
 		);
@@ -199,6 +201,7 @@ export class QualityReportShow extends Component {
 			.then((res) => {
 				if (res && res.status === 'success') {
 					conditions = res.conditions;
+                                        console.log(conditions);
 					this.updateListUI(conditions);
 				} else {
 					if (res.messages.length > 0) {
@@ -221,11 +224,11 @@ export class QualityReportShow extends Component {
                     data.pop();
                 }
                 let h = 0;
-                for (let i = 0; i < conditionCode.length; i++)
+                for (let i = conditionCode.length - 1; i >= 0; i--)
                 {
                     if(conditionCode[i].date.substring(0,4) === this.state.Year)
                     {
-                        let temp = [h++, conditionCode[i].conditionCode];
+                        let temp = [h++, (conditionCode[i].virusPPM+conditionCode[i].contaminantPPM)/2];
                         data.push(temp);
                     }
                 }

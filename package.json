@@ -16,7 +16,8 @@
     "react-native-maps": "^0.13.0",
     "react-native-message-bar": "^1.6.0",
     "react-native-modal-picker": "0.0.16",
-    "react-native-segmented-control-tab": "^2.0.1"
+    "react-native-segmented-control-tab": "^2.0.1",
+    "react-numeric-input": "^2.0.7"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

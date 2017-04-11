@@ -7,6 +7,7 @@ import Button from 'apsl-react-native-button';
 import React from 'react';
 import Login from '../login';
 import Renderer from 'react-test-renderer';
+import BusyIndicator from 'react-native-busy-indicator';
 
 describe('Login', () => {
     test('renders correctly', ()  => {
@@ -53,6 +54,14 @@ describe('Login', () => {
             Style={{}}>
             Return
             </Button>
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
+    });
+
+    test('BusyIndicator', () =>  {
+        const instance = Renderer.create(
+            <BusyIndicator />
         );
 
         expect(instance.toJSON()).toMatchSnapshot();
