@@ -1,5 +1,3 @@
-jest.disableAutomock();
-
 import {
 	TextInput
 } from 'react-native';
