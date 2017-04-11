@@ -1,56 +1,19 @@
 jest.disableAutomock();
 
-const React = require('React');
-const ReactTestRenderer = require('react-test-renderer');
-const Text = require('Text');
-const TextInput = require('TextInput');
-const Button = require('Button');
+import {
+    TextInput
+} from 'react-native';
+import Button from 'apsl-react-native-button';
+import React from 'react';
+import Login from '../login';
+import Renderer from 'react-test-renderer';
 
-describe('UsernameField', () => {
-    it('renders correctly', () => {
-        const instance  = ReactTestRenderer.create(
-            <TextInput style={{}}
-            />
-        );
-
-        expect(instance.toJSON()).toMatchSnapshot();
+describe('Login', () => {
+    test('renders correctly', ()  => {
+        const login = Renderer.create(
+            <Login />
+        ).toJSON();
+        expect(login).toMatchSnapshot();
     });
 });
 
-describe('PasswordField', () => {
-    it('renders correctly', () => {
-        const instance  = ReactTestRenderer.create(
-            <TextInput style={{}}
-            />
-        );
-
-        expect(instance.toJSON()).toMatchSnapshot();
-    });
-});
-
-describe('LoginButton', () => {
-    it('renders correctly', () => {
-        const instance  = ReactTestRenderer.create(
-            <Button 
-            style={{}}
-            title="Login">
-            Login
-            </Button>
-        );
-
-        expect(instance.toJSON()).toMatchSnapshot();
-    });
-});
-
-describe('CancelButton', () => {
-    it('renders correctly', () => {
-        const instance  = ReactTestRenderer.create(
-            <Button style={{}}
-            title="Return">
-            Return
-            </Button>
-        );
-
-        expect(instance.toJSON()).toMatchSnapshot();
-    });
-});
