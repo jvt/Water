@@ -2,7 +2,6 @@ jest.disableAutomock();
 
 import {
 	Text,
-	ListView,
 } from 'react-native';
 import React from 'react';
 import ReportList from '../report/list'
@@ -32,11 +31,56 @@ describe('ReportList', () => {
 		expect(instance.toJSON()).toMatchSnapshot();
 	});
 
-	test('ListView', () => {
+	test('ElementLocationText', () => {
 		const instance  = Renderer.create(
-			<ListView 
+			<Text
 			style={{}}>
-			</ListView>
+			Location
+			</Text>
+		);
+
+		expect(instance.toJSON()).toMatchSnapshot();
+	});
+
+	test('ElementTypeText', () => {
+		const instance  = Renderer.create(
+			<Text
+			style={{}}>
+			Type
+			</Text>
+		);
+
+		expect(instance.toJSON()).toMatchSnapshot();
+	});
+
+	test('ElementConditionText', () => {
+		const instance  = Renderer.create(
+			<Text
+			style={{}}>
+			Condition
+			</Text>
+		);
+
+		expect(instance.toJSON()).toMatchSnapshot();
+	});
+
+	test('ElementReportedText', () => {
+		const instance  = Renderer.create(
+			<Text
+			style={{}}>
+			Reported
+			</Text>
+		);
+
+		expect(instance.toJSON()).toMatchSnapshot();
+	});
+
+	test('ElementSubmittedByText', () => {
+		const instance  = Renderer.create(
+			<Text
+			style={{}}>
+			SubmittedBy
+			</Text>
 		);
 
 		expect(instance.toJSON()).toMatchSnapshot();
