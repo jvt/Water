@@ -1,3 +1,364 @@
+exports[`Profile HomeAddressField 1`] = `
+<TextInput
+  HomeAddress={true}
+  Style={Object {}} />
+`;
+
+exports[`Profile HomeAddressText 1`] = `
+<Text
+  Style={Object {}}
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail">
+  Home Address:
+</Text>
+`;
+
+exports[`Profile MyAccountText 1`] = `
+<Text
+  Style={Object {}}
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail">
+  My Account
+</Text>
+`;
+
+exports[`Profile ReturnButton 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "stretch",
+      "borderRadius": 8,
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "marginBottom": 10,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "fontSize": 18,
+          "textAlign": "center",
+        },
+        undefined,
+      ]
+    }>
+    Return
+  </Text>
+</View>
+`;
+
+exports[`Profile RoleTabs 1`] = `
+<View
+  removeClippedSubviews={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "flexDirection": "row",
+      },
+      Object {},
+    ]
+  }>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#0076FF",
+        "borderBottomLeftRadius": 5,
+        "borderColor": "#0076FF",
+        "borderTopLeftRadius": 5,
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {
+            "color": "white",
+          },
+          undefined,
+        ]
+      }>
+      User
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": "#0076FF",
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {},
+          Object {},
+        ]
+      }>
+      Worker
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": "#0076FF",
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {},
+          Object {},
+        ]
+      }>
+      Manager
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderBottomRightRadius": 5,
+        "borderColor": "#0076FF",
+        "borderTopRightRadius": 5,
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {},
+          Object {},
+        ]
+      }>
+      Admin
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Profile RoleText 1`] = `
+<Text
+  Style={Object {}}
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail">
+  Role:
+</Text>
+`;
+
+exports[`Profile SaveButton 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "stretch",
+      "borderRadius": 8,
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "center",
+      "marginBottom": 10,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "fontSize": 18,
+          "textAlign": "center",
+        },
+        undefined,
+      ]
+    }>
+    Save
+  </Text>
+</View>
+`;
+
+exports[`Profile TitleField 1`] = `
+<TextInput
+  Style={Object {}}
+  Title={true} />
+`;
+
+exports[`Profile TitleText 1`] = `
+<Text
+  Style={Object {}}
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail">
+  Title:
+</Text>
+`;
+
+exports[`Profile UsernameField 1`] = `
+<TextInput
+  Style={Object {}}
+  Username={true} />
+`;
+
+exports[`Profile UsernameText 1`] = `
+<Text
+  Style={Object {}}
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail">
+  Username:
+</Text>
+`;
+
 exports[`Profile renders correctly 1`] = `
 <View
   style={
