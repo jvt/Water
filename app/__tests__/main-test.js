@@ -1,8 +1,6 @@
-jest.disableAutomock();
-
 import 'react-native';
 import React from 'react';
-import Main from '../main'
+import Main from '../main';
 import Button from 'apsl-react-native-button';
 import Renderer from 'react-test-renderer';
 

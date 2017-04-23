@@ -1,5 +1,3 @@
-jest.disableAutomock();
-
 import {
 	Text,
 } from 'react-native';
