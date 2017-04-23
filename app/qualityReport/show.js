@@ -18,6 +18,10 @@ import Button from 'apsl-react-native-button';
 import BusyIndicator from 'react-native-busy-indicator';
 import Chart from 'react-native-chart';
 import ModalPicker from 'react-native-modal-picker'
+import {
+    shareOnFacebook,
+    shareOnTwitter,
+} from 'react-native-social-share';
 
 let MessageBarAlert = require('react-native-message-bar').MessageBar;
 let MessageBarManager = require('react-native-message-bar').MessageBarManager;
@@ -151,6 +155,18 @@ export class QualityReportShow extends Component {
 					</ScrollView>
 				</View>
                             </ScrollView>
+                        <TouchableHighlight onPress={this.tweet}>
+                              <View style={{alignItems: 'center',justifyContent:'center', width: 150, height: 50,backgroundColor:'#00aced'}}>
+                               <Text style={{color:'#ffffff',fontWeight:'800',}}>Share on Twitter</Text>
+                              </View>
+                            </TouchableHighlight>
+
+
+                            <TouchableHighlight onPress={this.facebookShare}>
+                              <View style={{alignItems: 'center',justifyContent:'center', width: 150, height: 50,backgroundColor:'#3b5998'}}>
+                               <Text style={{color:'#ffffff',fontWeight:'800',}}>Share on Facebook</Text>
+                              </View>
+                            </TouchableHighlight>
 			</View>
 		)
 	}
@@ -264,6 +280,28 @@ export class QualityReportShow extends Component {
 				console.error(error);
 			});
 	}
+    tweet() {
+
+            shareOnTwitter({
+                        'text':'Check out the water at this location!',
+                        'link':'https://www.google.com/maps@' + this.latitude +','+this.longitude ,
+                },
+                      (results) => {
+                                  console.log(results);
+                                }
+                    );
+    }
+
+    facebookShare() {
+    shareOnFacebook({
+                'text':'Check out the water at this location!',
+                'link':'https://www.google.com/maps@' + this.latitude +','+this.longitude ,
+                },
+              (results) => {
+                          console.log(results);
+                        }
+            );
+    }
 }
 
 module.exports = QualityReportShow;
