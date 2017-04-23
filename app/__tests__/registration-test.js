@@ -1,5 +1,7 @@
 import {
-    TextInput
+    TextInput,
+    Image,
+    Text
 } from 'react-native';
 import Button from 'apsl-react-native-button';
 import React from 'react';
@@ -14,6 +16,28 @@ describe('Registration', () => {
             <Registration />
         ).toJSON();
         expect(login).toMatchSnapshot();
+    });
+
+    test('WaterImage', () => {
+    	const instance = Renderer.create(
+    		<Image
+    		Style={{}}
+    		Droplet
+    		/>
+    	);
+
+    	expect(instance.toJSON()).toMatchSnapshot();
+    })
+
+    test('RegisterText', ()  => {
+        const instance = Renderer.create(
+            <Text
+            Style={{}}>
+            Register
+            </Text>
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
     });
 
     test('UsernameField', ()  => {

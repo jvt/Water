@@ -67,6 +67,16 @@ exports[`Registration RegisterButton 1`] = `
 </View>
 `;
 
+exports[`Registration RegisterText 1`] = `
+<Text
+  Style={Object {}}
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail">
+  Register
+</Text>
+`;
+
 exports[`Registration ReturnButton 1`] = `
 <View
   accessibilityComponentType={undefined}
@@ -121,6 +131,12 @@ exports[`Registration UsernameField 1`] = `
 <TextInput
   Style={Object {}}
   Username={true} />
+`;
+
+exports[`Registration WaterImage 1`] = `
+<Image
+  Droplet={true}
+  Style={Object {}} />
 `;
 
 exports[`Registration renders correctly 1`] = `
