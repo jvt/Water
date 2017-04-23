@@ -11,6 +11,13 @@ exports[`Registration BusyIndicator 1`] = `
   } />
 `;
 
+exports[`Registration ConfirmPasswordField 1`] = `
+<TextInput
+  Confirm={true}
+  Password={true}
+  Style={Object {}} />
+`;
+
 exports[`Registration PasswordField 1`] = `
 <TextInput
   Password={true}
@@ -124,6 +131,199 @@ exports[`Registration ReturnButton 1`] = `
     }>
     Return
   </Text>
+</View>
+`;
+
+exports[`Registration RoleTabs 1`] = `
+<View
+  removeClippedSubviews={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "flexDirection": "row",
+      },
+      Object {},
+    ]
+  }>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#0076FF",
+        "borderBottomLeftRadius": 5,
+        "borderColor": "#0076FF",
+        "borderTopLeftRadius": 5,
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {
+            "color": "white",
+          },
+          undefined,
+        ]
+      }>
+      User
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": "#0076FF",
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {},
+          Object {},
+        ]
+      }>
+      Worker
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": "#0076FF",
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {},
+          Object {},
+        ]
+      }>
+      Manager
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderBottomRightRadius": 5,
+        "borderColor": "#0076FF",
+        "borderTopRightRadius": 5,
+        "borderWidth": 1,
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingVertical": 5,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          undefined,
+          undefined,
+          Object {},
+          Object {},
+        ]
+      }>
+      Admin
+    </Text>
+  </View>
 </View>
 `;
 

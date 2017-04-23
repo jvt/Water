@@ -62,6 +62,30 @@ describe('Registration', () => {
         expect(instance.toJSON()).toMatchSnapshot();
     });
 
+    test('ConfirmPasswordField', () => {
+        const instance = Renderer.create(
+            <TextInput
+            Style={{}}
+            Confirm Password
+            />
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
+    });
+
+    test('RoleTabs', ()  => {
+        const instance = Renderer.create(
+            <SegmentedControlTab
+            values={['User', 'Worker', 'Manager', 'Admin']}
+			selectedIndex={0}
+            Style={{}}
+            Role
+            />
+        );
+
+        expect(instance.toJSON()).toMatchSnapshot();
+    });
+
     test('RegisterButton', () => {
         const instance = Renderer.create(
             <Button
