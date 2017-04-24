@@ -48,6 +48,56 @@ exports[`ReportList BackButton 1`] = `
 </View>
 `;
 
+exports[`ReportList ElementConditionText 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}>
+  Condition
+</Text>
+`;
+
+exports[`ReportList ElementLocationText 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}>
+  Location
+</Text>
+`;
+
+exports[`ReportList ElementReportedText 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}>
+  Reported
+</Text>
+`;
+
+exports[`ReportList ElementSubmittedByText 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}>
+  SubmittedBy
+</Text>
+`;
+
+exports[`ReportList ElementTypeText 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}>
+  Type
+</Text>
+`;
+
 exports[`ReportList NewButton 1`] = `
 <View
   accessibilityComponentType={undefined}

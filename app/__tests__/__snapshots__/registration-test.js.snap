@@ -1,15 +1,4 @@
-exports[`Registration BusyIndicator 1`] = `
-<View
-  style={
-    Object {
-      "height": 0.001,
-      "left": 0,
-      "position": "absolute",
-      "top": 0,
-      "width": 0.001,
-    }
-  } />
-`;
+exports[`Registration BusyIndicator 1`] = `<View />`;
 
 exports[`Registration ConfirmPasswordField 1`] = `
 <TextInput
@@ -797,15 +786,6 @@ exports[`Registration renders correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-  <View
-    style={
-      Object {
-        "height": 0.001,
-        "left": 0,
-        "position": "absolute",
-        "top": 0,
-        "width": 0.001,
-      }
-    } />
+  <View />
 </View>
 `;

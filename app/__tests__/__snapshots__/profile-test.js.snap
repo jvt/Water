@@ -903,15 +903,6 @@ exports[`Profile renders correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-  <View
-    style={
-      Object {
-        "height": 0.001,
-        "left": 0,
-        "position": "absolute",
-        "top": 0,
-        "width": 0.001,
-      }
-    } />
+  <View />
 </View>
 `;
