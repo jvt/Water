@@ -1,4 +1,4 @@
-exports[`AdminPanel CancelButton 1`] = `
+exports[`QualityReportNew CancelButton 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -48,19 +48,19 @@ exports[`AdminPanel CancelButton 1`] = `
 </View>
 `;
 
-exports[`AdminPanel ContaminantPPMInput 1`] = `
+exports[`QualityReportNew ContaminantPPMInput 1`] = `
 <TextInput
   ContaminantPPM={true}
   style={Object {}} />
 `;
 
-exports[`AdminPanel DropletImage 1`] = `
+exports[`QualityReportNew DropletImage 1`] = `
 <Image
   Droplet={true}
   style={Object {}} />
 `;
 
-exports[`AdminPanel SubmitButton 1`] = `
+exports[`QualityReportNew SubmitButton 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -110,7 +110,7 @@ exports[`AdminPanel SubmitButton 1`] = `
 </View>
 `;
 
-exports[`AdminPanel TitleText 1`] = `
+exports[`QualityReportNew TitleText 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -120,7 +120,7 @@ exports[`AdminPanel TitleText 1`] = `
 </Text>
 `;
 
-exports[`AdminPanel VirusPPMInput 1`] = `
+exports[`QualityReportNew VirusPPMInput 1`] = `
 <TextInput
   VirusPPM={true}
   style={Object {}} />
