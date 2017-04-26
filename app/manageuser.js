@@ -38,7 +38,7 @@ export class ManageUser extends Component {
 		}
 
 		const _banUser = () => {
-			fetch('https://water.joetorraca.com/api/user/' + row.id  + '/ban',
+			fetch('https://water.joetorraca.com/api/user/' + this.state.UID  + '/ban',
 			{
 				method: 'GET',
 				headers: {
@@ -66,7 +66,35 @@ export class ManageUser extends Component {
 		}
 
 		const _unbanUser = () => {
-			fetch('https://water.joetorraca.com/api/user/' + row.id  + '/unban',
+			fetch('https://water.joetorraca.com/api/user/' + this.state.UID  + '/unban',
+			{
+				method: 'GET',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			})
+			.then((response) => response.json())
+			.then((res) => {
+				if (res && res.status === 'success') {
+					Alert.alert("User successfully Unbanned")
+				} else {
+					if (res.messages.length > 0) {
+						console.log('An error occurred with loading users!');
+						console.log(res.messages);
+						Alert.alert(res.messages[0]);
+					} else {
+						Alert.alert('An unexpected error occurred. Please try again.');
+					}
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+		}
+
+		const _deleteUser = () => {
+			fetch('https://water.joetorraca.com/api/user/' + this.state.UID  + '/delete',
 			{
 				method: 'GET',
 				headers: {
@@ -103,59 +131,50 @@ export class ManageUser extends Component {
 								My Account
 							</Text>
 						</View>
-						<View style={styles.card} elevation={1}>
-								<Text
-									style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
-									Username: 
-							</Text>
-							<TextInput
-								style={{height: 40}}
-								value={this.state.Username}
-								onChangeText={(Username) => this.setState({Username})}
-							/>
+						<View style={[styles.card, styles.noCardMargin]}>
+							<Text>Title: {this.state.Title}</Text>
+							<Text>Username: {this.state.Username}</Text>
+							{this.state.Locked == 0 &&
+							<Text>Banned: False</Text>
+							}
+							{this.state.Locked == 1 &&
+							<Text>Banned: True</Text>
+							}
+							{this.state.Role == 0 &&
+								<Text>Role: User </Text>
+							}
+							{this.state.Role == 1 &&
+								<Text>Role: Worker </Text>
+							}
+							{this.state.Role == 2 &&
+								<Text>Role: Manager </Text>
+							}
+							{this.state.Role == 3 &&
+								<Text>Role: Admin </Text>
+							}
 						</View>
 						<View style={styles.card} elevation={1}>
-								<Text
-									style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
-									Home Address:
-							</Text>
-							<TextInput
-								style={{height: 40}}
-								value={this.state.HomeAddress} 
-								onChangeText={(HomeAddress) => this.setState({HomeAddress})}
-							/>
-						</View>
-						<View style={styles.card} elevation={1}>
-								<Text
-									style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
-									Role:
-							</Text>
-							<View
-								style={{padding: 20, paddingBottom: 0}}>
-								<SegmentedControlTab
-									values={['User', 'Worker', 'Manager', 'Admin']}
-									selectedIndex={0}
-									onTabPress={(Role) => this.setState({Role})}
-								/>
-							</View>
-						</View>
-						<View style={styles.card} elevation={1}>
-								<Text
-									style={{fontSize: 20, textAlign: 'left', fontWeight: '200'}}>
-									Title: 
-							</Text>
-							<TextInput
-								style={{height: 40}}
-								value={this.state.Title}
-								onChangeText={(Title) => this.setState({Title})}
-							/>
-						</View>
-						<View style={styles.card} elevation={1}>
+							{this.state.Locked == 0 &&
 							<Button
 								style={{backgroundColor: 'rgba(63, 209, 127, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
-								onPress={() => _saveChanges()}
+								onPress={() => _unbanUser()}
 								textStyle={{fontSize: 18}}>
-								Save
+								Ban
+							</Button>
+							}
+							{this.state.Locked == 1 &&
+							<Button
+								style={{backgroundColor: 'rgba(63, 209, 127, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
+								onPress={() => _unbanUser()}
+								textStyle={{fontSize: 18}}>
+								Unban
+							</Button>
+							}
+							<Button
+								style={{backgroundColor: 'rgba(63, 209, 127, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
+								onPress={() => _deleteUser()}
+								textStyle={{fontSize: 18}}>
+								Delete
 							</Button>
 							<Button
 								style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
