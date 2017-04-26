@@ -49,7 +49,8 @@ export class ManageUser extends Component {
 			.then((response) => response.json())
 			.then((res) => {
 				if (res && res.status === 'success') {
-					Alert.alert("User successfully Banned")
+					Alert.alert("User successfully Banned");
+					_navigateBack();
 				} else {
 					if (res.messages.length > 0) {
 						console.log('An error occurred with loading users!');
@@ -77,7 +78,8 @@ export class ManageUser extends Component {
 			.then((response) => response.json())
 			.then((res) => {
 				if (res && res.status === 'success') {
-					Alert.alert("User successfully Unbanned")
+					Alert.alert("User successfully Unbanned");
+					_navigateBack();
 				} else {
 					if (res.messages.length > 0) {
 						console.log('An error occurred with loading users!');
@@ -105,7 +107,8 @@ export class ManageUser extends Component {
 			.then((response) => response.json())
 			.then((res) => {
 				if (res && res.status === 'success') {
-					Alert.alert("User successfully Unbanned")
+					Alert.alert("User successfully Deleted")
+					_navigateBack();
 				} else {
 					if (res.messages.length > 0) {
 						console.log('An error occurred with loading users!');
@@ -128,50 +131,58 @@ export class ManageUser extends Component {
 						<View style={styles.card} elevation={1}>
 							<Text
 								style={{fontSize: 20, textAlign: 'center', fontWeight: '200'}}>
-								My Account
+								Manage User
 							</Text>
 						</View>
-						<View style={[styles.card, styles.noCardMargin]}>
-							<Text>Title: {this.state.Title}</Text>
-							<Text>Username: {this.state.Username}</Text>
+						<View style={styles.card}>
+							<Text
+							style={{fontSize: 18, fontWeight: '200'}}>Title: {this.state.Title}</Text>
+							<Text
+							style={{fontSize: 18, fontWeight: '200'}}>Username: {this.state.Username}</Text>
 							{this.state.Locked == 0 &&
-							<Text>Banned: False</Text>
+							<Text
+							style={{fontSize: 18, fontWeight: '200'}}>Banned: False</Text>
 							}
 							{this.state.Locked == 1 &&
-							<Text>Banned: True</Text>
+							<Text
+							style={{fontSize: 18, fontWeight: '200'}}>Banned: True</Text>
 							}
 							{this.state.Role == 0 &&
-								<Text>Role: User </Text>
+								<Text
+								style={{fontSize: 18, fontWeight: '200'}}>Role: User </Text>
 							}
 							{this.state.Role == 1 &&
-								<Text>Role: Worker </Text>
+								<Text
+								style={{fontSize: 18, fontWeight: '200'}}>Role: Worker </Text>
 							}
 							{this.state.Role == 2 &&
-								<Text>Role: Manager </Text>
+								<Text
+								style={{fontSize: 18, fontWeight: '200'}}>Role: Manager </Text>
 							}
 							{this.state.Role == 3 &&
-								<Text>Role: Admin </Text>
+								<Text
+								style={{fontSize: 18, fontWeight: '200'}}>Role: Admin </Text>
 							}
 						</View>
 						<View style={styles.card} elevation={1}>
 							{this.state.Locked == 0 &&
 							<Button
-								style={{backgroundColor: 'rgba(63, 209, 127, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
-								onPress={() => _unbanUser()}
+								style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
+								onPress={() => _banUser()}
 								textStyle={{fontSize: 18}}>
 								Ban
 							</Button>
 							}
 							{this.state.Locked == 1 &&
 							<Button
-								style={{backgroundColor: 'rgba(63, 209, 127, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
+								style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
 								onPress={() => _unbanUser()}
 								textStyle={{fontSize: 18}}>
 								Unban
 							</Button>
 							}
 							<Button
-								style={{backgroundColor: 'rgba(63, 209, 127, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
+								style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 10, marginRight: 10, borderWidth: 0, marginTop: 10}}
 								onPress={() => _deleteUser()}
 								textStyle={{fontSize: 18}}>
 								Delete
