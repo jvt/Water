@@ -10,7 +10,7 @@ import {
 	TouchableHighlight,
 	TextInput,
 	ScrollView,
-    Share,
+	Share,
 	StyleSheet
 } from 'react-native';
 
@@ -29,15 +29,13 @@ const loaderHandler = require('react-native-busy-indicator/LoaderHandler');
 
 
 const data = [
-    [0,0]
+	[0,0]
 ];
 
 export class QualityReportShow extends Component {
 	constructor(props) {
 		super(props);
-        console.log(props.data);
-
-        this._shareText = this._shareText.bind(this);
+		this._shareText = this._shareText.bind(this);
 
 		this.state = {
 			id: props.data.id,
@@ -50,11 +48,11 @@ export class QualityReportShow extends Component {
 			loaded: false,
 			conditions: {},
 			hasConditions: false,
-            graph: false,
+			graph: false,
 			dataSource: new ListView.DataSource({
 				rowHasChanged: (row1, row2) => row1 !== row2,
 			}),
-            Year: '2017'
+			Year: '2017'
 		};
 
 		AsyncStorage.getItem('@water2340:user', function(e, user) {
@@ -65,11 +63,10 @@ export class QualityReportShow extends Component {
 		const updateUser = user => {
 			this.setState({user: user})
 		}
-    }
+	}
 
 	render() {
 		const _navigateToNewQualityReport = () => {
-			console.log(this.state);
 			this.props.navigator.push({
 				index: 9,
 				data: {
@@ -78,21 +75,21 @@ export class QualityReportShow extends Component {
 				}
 			});
 		}
-        let j = 0;
-        const year = [
-            {
-                key: j++,
-                label: '2017'
-            },
-            {
-                key: j++,
-                label: '2018'
-            }
-        ];
+		let j = 0;
+		const year = [
+			{
+				key: j++,
+				label: '2017'
+			},
+			{
+				key: j++,
+				label: '2018'
+			}
+		];
 
 		return (
 			<View style={styles.fullscreen}>
-                <ScrollView keyboardDismissMode='on-drag'>
+				<ScrollView keyboardDismissMode='on-drag'>
 					<View style={styles.header}>
 						<View style={styles.header_item}>
 							<Button
@@ -110,29 +107,29 @@ export class QualityReportShow extends Component {
 							<Text style={styles.header_text}>Water Condition</Text>
 						</View>
 					</View>
-	                <View style={styles.chartContainer}>
-	                    {
-	                        this.state.graph &&
-	                        <Chart
-	                                style={styles.chart}
-	                                data={data}
-	                                type="line"
-	                                showDataPoint={true}
-	                                color={'#e1cd00'}
-	                        />
-	                    }
-	                </View>
-	                <Button
-	                    style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
-	                    onPress={this._shareText}
-	                    textStyle={{fontSize: 18}}>
-	                    Share
-	                </Button>
-	                <ModalPicker
-	                    data={year}
-	                    style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
-	                    initValue="2017"
-	                    onChange={(Year) => this.setState({Year: Year.label})}/>
+					<View style={styles.chartContainer}>
+						{
+							this.state.graph &&
+							<Chart
+									style={styles.chart}
+									data={data}
+									type="line"
+									showDataPoint={true}
+									color={'#e1cd00'}
+							/>
+						}
+					</View>
+					<Button
+						style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
+						onPress={this._shareText}
+						textStyle={{fontSize: 18}}>
+						Share
+					</Button>
+					<ModalPicker
+						data={year}
+						style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
+						initValue="2017"
+						onChange={(Year) => this.setState({Year: Year.label})}/>
 					<View style={[styles.listBody, styles.greyBackground]}>
 						<ScrollView ref="scrollView">
 							<View style={{padding: 10}}>
@@ -164,19 +161,19 @@ export class QualityReportShow extends Component {
 							</View>
 						</ScrollView>
 					</View>
-            	</ScrollView>
+				</ScrollView>
 			</View>
 		)
 	}
 
 
 	componentWillUpdate() {
-		this.getReportCondition();
+		// this.getReportCondition();
 	}
 
 	componentDidMount() {
 		this.getReportCondition();
-                this.getHistoryReport();
+		this.getHistoryReport();
 	}
 
 	_renderRow(report: string, sectionID: number, rowID: number) {
@@ -185,27 +182,27 @@ export class QualityReportShow extends Component {
 				<View style={[styles.card, styles.noCardMargin]}>
 					<Text>Condition: {report.condition}</Text>
 					<Text>Reported: {moment(new Date(report.created_at)).format('MMMM D, YYYY hh:mma')}</Text>
-                                        <Text>VirusPPM: {report.virusPPM}</Text>
-                                        <Text>ContaminantPPM: {report.contaminantPPM}</Text>
+										<Text>VirusPPM: {report.virusPPM}</Text>
+										<Text>ContaminantPPM: {report.contaminantPPM}</Text>
 				</View>
 			</TouchableHighlight>
 		);
 	}
 
-    _shareText() {
-    Share.share({
-          message: 'Check out this Water Report!',
-          url: 'https://water.joetorraca.com/reports/'+ this.state.id + '/',
-        }, {
-          dialogTitle: 'Share Water Report',
-          excludedActivityTypes: [
-            'com.apple.UIKit.activity.PostToTwitter'
-          ],
-          tintColor: 'green'
-        })
-        .then(this._showResult)
-        .catch((error) => this.setState({result: 'error: ' + error.message}));
-    }
+	_shareText() {
+	Share.share({
+		  message: 'Check out this Water Report!',
+		  url: 'https://water.joetorraca.com/reports/'+ this.state.id + '/',
+		}, {
+		  dialogTitle: 'Share Water Report',
+		  excludedActivityTypes: [
+			'com.apple.UIKit.activity.PostToTwitter'
+		  ],
+		  tintColor: 'green'
+		})
+		.then(this._showResult)
+		.catch((error) => this.setState({result: 'error: ' + error.message}));
+	}
 
 	updateListUI(conditions) {
 		var ds = this.state.dataSource.cloneWithRows(conditions);
@@ -229,9 +226,7 @@ export class QualityReportShow extends Component {
 			.then((response) => response.json())
 			.then((res) => {
 				if (res && res.status === 'success') {
-					conditions = res.conditions;
-                                        console.log(conditions);
-					this.updateListUI(conditions);
+					this.updateListUI(res.conditions);
 				} else {
 					if (res.messages.length > 0) {
 						console.log('An error occurred with loading condition history!');
@@ -247,29 +242,27 @@ export class QualityReportShow extends Component {
 			});
 	}
 
-        createDataPoints(conditionCode) {
-                for(let x = 0; x < data.length; x++)
-                {
-                    data.pop();
-                }
-                let h = 0;
-                for (let i = conditionCode.length - 1; i >= 0; i--)
-                {
-                    if(conditionCode[i].date.substring(0,4) === this.state.Year)
-                    {
-                        let temp = [h++, (conditionCode[i].virusPPM+conditionCode[i].contaminantPPM)/2];
-                        data.push(temp);
-                    }
-                }
-                this.setState({
-                    'graph': true
-                })
-        }
-                                    
-	
-        getHistoryReport() {
-		let conditionCode = [];
-		fetch('https://water.joetorraca.com/api/reports/'+ this.state.id +'/history',
+		createDataPoints(conditionCode) {
+			for(let x = 0; x < data.length; x++)
+			{
+				data.pop();
+			}
+			let h = 0;
+			for (let i = conditionCode.length - 1; i >= 0; i--)
+			{
+				if(conditionCode[i].date.substring(0,4) === this.state.Year)
+				{
+					let temp = [h++, (conditionCode[i].virusPPM+conditionCode[i].contaminantPPM)/2];
+					data.push(temp);
+				}
+			}
+			this.setState({
+				'graph': true
+			});
+		}
+		getHistoryReport() {
+			let conditionCode = [];
+			fetch('https://water.joetorraca.com/api/reports/'+ this.state.id +'/history',
 			{
 				method: 'GET',
 				headers: {
