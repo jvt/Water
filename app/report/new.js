@@ -70,7 +70,6 @@ export class ReportNew extends Component {
 						Latitude: String(position.coords.latitude),
 						Longitude: String(position.coords.longitude)
 					});
-					console.log(this.state);
 				},
 				(error) => alert(error.message),
 				{
