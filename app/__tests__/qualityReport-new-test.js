@@ -8,7 +8,7 @@ import QualityReportNew from '../qualityReport/new';
 import Button from 'apsl-react-native-button';
 import Renderer from 'react-test-renderer';
 
-describe('AdminPanel', () => {
+describe('QualityReportNew', () => {
 
 	test('DropletImage', () => {
 		const instance  = Renderer.create(
