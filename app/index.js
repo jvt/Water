@@ -158,7 +158,7 @@ export default class water extends Component {
 			} else if (route.index === 10) {
 				return <AdminPanel navigator={navigator}></AdminPanel>
 			} else if (route.index === 11) {
-				return <ManageUser navigator={navigator}></ManageUser>
+				return <ManageUser navigator={navigator} data={route.data}></ManageUser>
 			}
 		};
 

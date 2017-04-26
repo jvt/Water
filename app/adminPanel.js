@@ -119,7 +119,10 @@ export class AdminPanel extends Component {
 	_onPressRow(_this, row, obj) {
 		console.log('Ban User');
 		console.log(row);
-		
+		_this.props.navigator.push({
+				index: 11,
+				data: row
+			});
 	}
 
 	updateListUI(users) {
@@ -143,7 +146,6 @@ export class AdminPanel extends Component {
 			.then((response) => response.json())
 			.then((res) => {
 				if (res && res.status === 'success') {
-					console.log(res);
 					users = res.users;
 					this.updateListUI(users);
 				} else {

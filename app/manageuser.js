@@ -24,17 +24,12 @@ export class ManageUser extends Component {
 
 		this.state = {
 			UID: props.data.id,
-			Token: null,
-			Username: null,
-			Role: null,
-			HomeAddress: null,
-			Title: null
+			Username: props.data.username,
+			Role: props.data.role,
+			HomeAddress: props.data.homeaddress,
+			Title: props.data.title,
+			Locked: props.data.locked
 		};
-
-		// AsyncStorage.getItem('@water2340:user', function(e, user) {
-		// 	if (!user) Alert.alert('A fatal internal error has occurred');
-		// 	let _parsed = JSON.parse(user);
-		// });
 	}
 
 	render() {
@@ -96,7 +91,6 @@ export class ManageUser extends Component {
 			.catch((error) => {
 				console.error(error);
 			});
-		}
 		}
 
 		return (
