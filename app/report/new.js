@@ -33,6 +33,8 @@ export class ReportNew extends Component {
 			UserID: '',
 			Role: '',
 			Condition: '',
+			virusPPM: '',
+			contaminantPPM: '',
 			Type: ''
 		};
 
@@ -92,6 +94,8 @@ export class ReportNew extends Component {
 						userID: this.state.UserID,
 						condition: this.state.Condition,
 						type: this.state.Type,
+						contaminantPPM: this.state.contaminantPPM,
+						virusPPM: this.state.virusPPM,
 						latitude: this.state.Latitude,
 						longitude: this.state.Longitude
 					})
@@ -180,13 +184,17 @@ export class ReportNew extends Component {
 						New Water Report
 					</Text>
 					<Button
-						style={{borderWidth: 0}}
+						style={{borderWidth: 0, marginTop: 30}}
 						onPress={() => calculateLocation()}
 						textStyle={{fontSize: 18}}>
 						Use My Location
 					</Button>
+					<Text
+						style={{fontSize: 15, textAlign: 'center', fontWeight: '200', color: 'grey'}}>
+						— or —
+					</Text>
 					<TextInput
-						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20, borderRadius: 5}}
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 30, marginLeft: 20, marginRight: 20, borderRadius: 5}}
 						onChangeText={(Latitude) => this.setState({Latitude})}
 						placeholder='Latitude'
 						value={this.state.Latitude}
@@ -197,6 +205,20 @@ export class ReportNew extends Component {
 						onChangeText={(Longitude) => this.setState({Longitude})}
 						placeholder='Longitude'
 						value={this.state.Longitude}
+						returnKeyType='next'
+					/>
+					<TextInput
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20, borderRadius: 5}}
+						onChangeText={(virusPPM) => this.setState({virusPPM})}
+						placeholder='Virus PPM'
+						value={this.state.virusPPM}
+						returnKeyType='next'
+					/>
+					<TextInput
+						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20, borderRadius: 5}}
+						onChangeText={(contaminantPPM) => this.setState({contaminantPPM})}
+						placeholder='Contaminant PPM'
+						value={this.state.contaminantPPM}
 						returnKeyType='next'
 					/>
 					<ModalPicker
