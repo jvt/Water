@@ -108,7 +108,7 @@ describe('AdminPanel', () => {
 			<Text 
 			style={{}}>
 			Role: Admin
-			</Button>
+			</Text>
 		);
 
 		expect(instance.toJSON()).toMatchSnapshot();

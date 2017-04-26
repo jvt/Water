@@ -68,13 +68,23 @@ exports[`AdminPanel BannedTrueText 1`] = `
 </Text>
 `;
 
+exports[`AdminPanel RoleAdminText 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}>
+  Role: Admin
+</Text>
+`;
+
 exports[`AdminPanel RoleManagerText 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
   ellipsizeMode="tail"
   style={Object {}}>
-  Role: User
+  Role: Manager
 </Text>
 `;
 
