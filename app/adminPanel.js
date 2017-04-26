@@ -26,7 +26,7 @@ export class AdminPanel extends Component {
 			dataSource: new ListView.DataSource({
 				rowHasChanged: (row1, row2) => row1 !== row2,
 			}),
-			reports: {},
+			users: {},
 			loaded: false,
 			user: {}
 		};
@@ -63,13 +63,7 @@ export class AdminPanel extends Component {
 							textStyle={{fontSize: 14}}>
 							Back
 						</Button>
-						<Button
-							style={styles.rightHeader}
-							onPress={_navigateToNewReport}
-							textStyle={{fontSize: 14}}>
-							New
-						</Button>
-						<Text style={styles.header_text}>Reports</Text>
+						<Text style={styles.header_text}>Users</Text>
 					</View>
 				</View>
 				<View style={[styles.listBody, styles.greyBackground]}>
@@ -79,7 +73,7 @@ export class AdminPanel extends Component {
 							this.state.loaded && 
 							<ListView
 								initialListSize={1}
-								dataSource={this.state.reports}
+								dataSource={this.state.users}
 								renderRow={this._renderRow.bind(this)}
 							/>
 							 
@@ -92,50 +86,47 @@ export class AdminPanel extends Component {
 	}
 
 	componentWillUpdate() {
-		this.getReports();
+		this.getUsers();
 	}
 
 	componentDidMount() {
-		this.getReports();
+		this.getUsers();
 	}
 
-	_renderRow(report: string, sectionID: number, rowID: number) {
+	_renderRow(user: string, sectionID: number, rowID: number) {
 		return (
-			<TouchableHighlight underlayColor={"#E8E8E8"} style={styles.reportElement} onPress={this._onPressRow.bind(this.rowData, this, report)}>
+			<TouchableHighlight underlayColor={"#E8E8E8"} style={styles.reportElement} onPress={this._onPressRow.bind(this.rowData, this, user)}>
 				<View style={[styles.card, styles.noCardMargin]}>
-					<Text>Location: {report.latitude}, {report.longitude}</Text>
-					<Text>Type: {report.type}</Text>
-					<Text>Condition: {report.condition}</Text>
-					<Text>Reported: {moment(new Date(report.created_at)).format('MMMM D, YYYY hh:mma')}</Text>
-					<Text>Submitted By: {report.submitter}</Text>
+					<Text>Title: {user.title}</Text>
+					<Text>Username: {user.username}</Text>
+					{user.locked == 0 &&
+					<Text>Banned: False</Text>
+					}
+					{user.locked == 1 &&
+					<Text>Banned: True</Text>
+					}
+					{user.role == 0 &&
+						<Text>Role: User </Text>
+					}
+					{user.role == 1 &&
+						<Text>Role: Worker </Text>
+					}
+					{user.role == 2 &&
+						<Text>Role: Manager </Text>
+					}
+					{user.role == 3 &&
+						<Text>Role: Admin </Text>
+					}
 				</View>
 			</TouchableHighlight>
 		);
 	}
 
 	_onPressRow(_this, row, obj) {
-		console.log('Will show row quality report');
-		if (Number(_this.state.user.role) > 0) {
-			_this.props.navigator.push({
-				index: 8,
-				data: row
-			});
-		} else {
-			Alert.alert('You do not have permission to view that.');
-		}
-	}
-
-	updateListUI(reports) {
-		var ds = this.state.dataSource.cloneWithRows(reports);
-		this.setState({
-			'reports': ds,
-			'loaded': true
-		});
-	}
-
-	getReports() {
-		let reports = [];
-		fetch('https://water.joetorraca.com/api/reports',
+		console.log('Ban User');
+		console.log(row);
+		if(row.locked === 0){
+			fetch('https://water.joetorraca.com/api/user/' + row.id  + '/ban',
 			{
 				method: 'GET',
 				headers: {
@@ -146,11 +137,76 @@ export class AdminPanel extends Component {
 			.then((response) => response.json())
 			.then((res) => {
 				if (res && res.status === 'success') {
-					reports = res.reports;
-					this.updateListUI(reports);
+					Alert.alert("User successfully Banned")
 				} else {
 					if (res.messages.length > 0) {
-						console.log('An error occurred with loading reports!');
+						console.log('An error occurred with loading users!');
+						console.log(res.messages);
+						Alert.alert(res.messages[0]);
+					} else {
+						Alert.alert('An unexpected error occurred. Please try again.');
+					}
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+		} else if(row.locked === 1){
+			fetch('https://water.joetorraca.com/api/user/' + row.id  + '/unban',
+			{
+				method: 'GET',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			})
+			.then((response) => response.json())
+			.then((res) => {
+				if (res && res.status === 'success') {
+					Alert.alert("User successfully Unbanned")
+				} else {
+					if (res.messages.length > 0) {
+						console.log('An error occurred with loading users!');
+						console.log(res.messages);
+						Alert.alert(res.messages[0]);
+					} else {
+						Alert.alert('An unexpected error occurred. Please try again.');
+					}
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+		}
+	}
+
+	updateListUI(users) {
+		var ds = this.state.dataSource.cloneWithRows(users);
+		this.setState({
+			'users': ds,
+			'loaded': true
+		});
+	}
+
+	getUsers() {
+		let users = [];
+		fetch('https://water.joetorraca.com/api/user',
+			{
+				method: 'GET',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				}
+			})
+			.then((response) => response.json())
+			.then((res) => {
+				if (res && res.status === 'success') {
+					console.log(res);
+					users = res.users;
+					this.updateListUI(users);
+				} else {
+					if (res.messages.length > 0) {
+						console.log('An error occurred with loading users!');
 						console.log(res.messages);
 						Alert.alert(res.messages[0]);
 					} else {
