@@ -47,6 +47,12 @@ export class Main extends Component {
 			});
 		}
 
+    const _navigateToAdmin = () => {
+      this.props.navigator.push({
+        index: 10
+      });
+    }
+
 		return (
 			<View style={styles.fullscreen}>
 				<View style={{alignItems: 'center'}}>
@@ -83,6 +89,12 @@ export class Main extends Component {
 					textStyle={{fontSize: 18}}>
 					View Map
 				</Button>
+        <Button
+          style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
+          onPress={() => _navigateToAdmin()}
+          textStyle={{fontSize: 18}}>
+          Admin Panel
+        </Button>
 				<Button
 					style={{backgroundColor: 'rgba(232, 88, 74, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
 					onPress={() => _navigateToWelcome()}

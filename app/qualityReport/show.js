@@ -109,7 +109,7 @@ export class QualityReportShow extends Component {
 						<Text style={styles.header_text}>Water Condition</Text>
 					</View>
 				</View>
-                                <View style={styles.container}>
+                                <View style={styles.paddedContainer}>
                                     <Chart
                                             style={styles.chart}
                                             data={data}
@@ -280,28 +280,28 @@ export class QualityReportShow extends Component {
 				console.error(error);
 			});
 	}
+    
     tweet() {
 
-            shareOnTwitter({
-                        'text':'Check out the water at this location!',
-                        'link':'https://www.google.com/maps@' + this.latitude +','+this.longitude ,
-                },
-                      (results) => {
-                                  console.log(results);
-                                }
-                    );
-    }
+    shareOnTwitter({
+        'text':'Global democratized marketplace for art'
+      },
+      (results) => {
+        console.log(results);
+      }
+    );
+  }
 
-    facebookShare() {
+  facebookShare() {
+
     shareOnFacebook({
-                'text':'Check out the water at this location!',
-                'link':'https://www.google.com/maps@' + this.latitude +','+this.longitude ,
-                },
-              (results) => {
-                          console.log(results);
-                        }
-            );
-    }
+        'link':'https://artboost.com/'
+      },
+      (results) => {
+        console.log(results);
+      }
+    );
+  }
 }
 
 module.exports = QualityReportShow;
