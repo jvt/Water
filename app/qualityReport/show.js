@@ -65,7 +65,7 @@ export class QualityReportShow extends Component {
 		const updateUser = user => {
 			this.setState({user: user})
 		}
-        }
+    }
 
 	render() {
 		const _navigateToNewQualityReport = () => {
@@ -78,93 +78,93 @@ export class QualityReportShow extends Component {
 				}
 			});
 		}
-                let j = 0;
-                const year = [
-                    {
-                        key: j++,
-                        label: '2017'
-                    },
-                    {
-                        key: j++,
-                        label: '2018'
-                    }
-                ];
+        let j = 0;
+        const year = [
+            {
+                key: j++,
+                label: '2017'
+            },
+            {
+                key: j++,
+                label: '2018'
+            }
+        ];
 
 		return (
 			<View style={styles.fullscreen}>
-                            <ScrollView keyboardDismissMode='on-drag'>
-				<View style={styles.header}>
-					<View style={styles.header_item}>
-						<Button
-							style={styles.leftHeader2}
-							onPress={this.props.navigator.pop}
-							textStyle={{fontSize: 14}}>
-							Back
-						</Button>
-						<Button
-							style={styles.rightHeader2}
-							onPress={_navigateToNewQualityReport}
-							textStyle={{fontSize: 14}}>
-							New
-						</Button>
-						<Text style={styles.header_text}>Water Condition</Text>
-					</View>
-				</View>
-                <View style={styles.chartContainer}>
-                    {
-                        this.state.graph &&
-                        <Chart
-                                style={styles.chart}
-                                data={data}
-                                type="line"
-                                showDataPoint={true}
-                                color={'#e1cd00'}
-                        />
-                    }
-                </View>
-                <Button
-                    style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
-                    onPress={this._shareText}
-                    textStyle={{fontSize: 18}}>
-                    Share
-                </Button>
-                <ModalPicker
-                    data={year}
-                    style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
-                    initValue="2017"
-                    onChange={(Year) => this.setState({Year: Year.label})}/>
-				<View style={[styles.listBody, styles.greyBackground]}>
-					<ScrollView ref="scrollView">
-						<View style={{padding: 10}}>
-						{
-							this.state.loaded &&
-							this.state.hasConditions &&
-							<ListView
-								initialListSize={1}
-								dataSource={this.state.conditions}
-								renderRow={this._renderRow.bind(this)}
-							/>
-						}
-						{
-							this.state.loaded &&
-							!this.state.hasConditions &&
-							<TouchableHighlight underlayColor={"#E8E8E8"} style={styles.reportElement}>
-								<View style={[styles.card, styles.noCardMargin]}>
-									<Text style={{textAlign: 'center'}}>Unknown Condition</Text>
-								</View>
-							</TouchableHighlight>
-						}
-						{
-							!this.state.loaded && 
-							<Text
-								style={{textAlign: 'center', marginTop: 20}}>
-								Loading...
-							</Text>
-						}
+                <ScrollView keyboardDismissMode='on-drag'>
+					<View style={styles.header}>
+						<View style={styles.header_item}>
+							<Button
+								style={styles.leftHeader2}
+								onPress={this.props.navigator.pop}
+								textStyle={{fontSize: 14}}>
+								Back
+							</Button>
+							<Button
+								style={styles.rightHeader2}
+								onPress={_navigateToNewQualityReport}
+								textStyle={{fontSize: 14}}>
+								New
+							</Button>
+							<Text style={styles.header_text}>Water Condition</Text>
 						</View>
-					</ScrollView>
-				</View>
-                            </ScrollView>
+					</View>
+	                <View style={styles.chartContainer}>
+	                    {
+	                        this.state.graph &&
+	                        <Chart
+	                                style={styles.chart}
+	                                data={data}
+	                                type="line"
+	                                showDataPoint={true}
+	                                color={'#e1cd00'}
+	                        />
+	                    }
+	                </View>
+	                <Button
+	                    style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
+	                    onPress={this._shareText}
+	                    textStyle={{fontSize: 18}}>
+	                    Share
+	                </Button>
+	                <ModalPicker
+	                    data={year}
+	                    style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
+	                    initValue="2017"
+	                    onChange={(Year) => this.setState({Year: Year.label})}/>
+					<View style={[styles.listBody, styles.greyBackground]}>
+						<ScrollView ref="scrollView">
+							<View style={{padding: 10}}>
+							{
+								this.state.loaded &&
+								this.state.hasConditions &&
+								<ListView
+									initialListSize={1}
+									dataSource={this.state.conditions}
+									renderRow={this._renderRow.bind(this)}
+								/>
+							}
+							{
+								this.state.loaded &&
+								!this.state.hasConditions &&
+								<TouchableHighlight underlayColor={"#E8E8E8"} style={styles.reportElement}>
+									<View style={[styles.card, styles.noCardMargin]}>
+										<Text style={{textAlign: 'center'}}>Unknown Condition</Text>
+									</View>
+								</TouchableHighlight>
+							}
+							{
+								!this.state.loaded && 
+								<Text
+									style={{textAlign: 'center', marginTop: 20}}>
+									Loading...
+								</Text>
+							}
+							</View>
+						</ScrollView>
+					</View>
+            	</ScrollView>
 			</View>
 		)
 	}
