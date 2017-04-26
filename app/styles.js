@@ -126,10 +126,17 @@ const styles = StyleSheet.create({
 		paddingTop: 50,
 		paddingBottom: 50
 	},
-        chart: {
-            width: 200,
-            height: 200,
-        },
+	chartContainer: {
+		position: 'relative',
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: 'white'
+	},
+    chart: {
+        width: 200,
+        height: 200,
+    },
 });
 
 module.exports = styles;

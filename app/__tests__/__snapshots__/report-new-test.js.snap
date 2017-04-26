@@ -994,6 +994,70 @@ exports[`ReportNew renders correctly 1`] = `
         }>
         New Water Report
       </Text>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "borderRadius": 8,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 44,
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "marginTop": 30,
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "flex": 1,
+                "fontSize": 18,
+                "textAlign": "center",
+              },
+              Object {
+                "fontSize": 18,
+              },
+            ]
+          }>
+          Use My Location
+        </Text>
+      </View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "grey",
+            "fontSize": 15,
+            "fontWeight": "200",
+            "textAlign": "center",
+          }
+        }>
+        — or —
+      </Text>
       <TextInput
         onChangeText={[Function]}
         placeholder="Latitude"
@@ -1006,10 +1070,11 @@ exports[`ReportNew renders correctly 1`] = `
             "height": 40,
             "marginLeft": 20,
             "marginRight": 20,
-            "marginTop": 50,
+            "marginTop": 30,
             "padding": 10,
           }
-        } />
+        }
+        value="" />
       <TextInput
         onChangeText={[Function]}
         placeholder="Longitude"
@@ -1025,7 +1090,42 @@ exports[`ReportNew renders correctly 1`] = `
             "marginTop": 20,
             "padding": 10,
           }
-        } />
+        }
+        value="" />
+      <TextInput
+        onChangeText={[Function]}
+        placeholder="Virus PPM"
+        returnKeyType="next"
+        style={
+          Object {
+            "borderColor": "#ccc",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "height": 40,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "marginTop": 20,
+            "padding": 10,
+          }
+        }
+        value="" />
+      <TextInput
+        onChangeText={[Function]}
+        placeholder="Contaminant PPM"
+        returnKeyType="next"
+        style={
+          Object {
+            "borderColor": "#ccc",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "height": 40,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "marginTop": 20,
+            "padding": 10,
+          }
+        }
+        value="" />
       <View
         style={
           Object {

@@ -10,6 +10,7 @@ import {
 	TouchableHighlight,
 	TextInput,
 	ScrollView,
+    Share,
 	StyleSheet
 } from 'react-native';
 
@@ -34,6 +35,9 @@ const data = [
 export class QualityReportShow extends Component {
 	constructor(props) {
 		super(props);
+        console.log(props.data);
+
+        this._shareText = this._shareText.bind(this);
 
 		this.state = {
 			id: props.data.id,
@@ -46,10 +50,11 @@ export class QualityReportShow extends Component {
 			loaded: false,
 			conditions: {},
 			hasConditions: false,
+            graph: false,
 			dataSource: new ListView.DataSource({
 				rowHasChanged: (row1, row2) => row1 !== row2,
 			}),
-                        Year: '2017'
+            Year: '2017'
 		};
 
 		AsyncStorage.getItem('@water2340:user', function(e, user) {
@@ -105,20 +110,29 @@ export class QualityReportShow extends Component {
 						<Text style={styles.header_text}>Water Condition</Text>
 					</View>
 				</View>
-                                <View style={styles.paddedContainer}>
-                                    <Chart
-                                            style={styles.chart}
-                                            data={data}
-                                            type="line"
-                                            showDataPoint={true}
-                                            color={'#e1cd00'}
-                                    />
-                                </View>
-                                <ModalPicker
-                                    data={year}
-                                    style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
-                                    initValue="2017"
-                                    onChange={(Year) => this.setState({Year: Year.label})}/>
+                <View style={styles.chartContainer}>
+                    {
+                        this.state.graph &&
+                        <Chart
+                                style={styles.chart}
+                                data={data}
+                                type="line"
+                                showDataPoint={true}
+                                color={'#e1cd00'}
+                        />
+                    }
+                </View>
+                <Button
+                    style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
+                    onPress={this._shareText}
+                    textStyle={{fontSize: 18}}>
+                    Share
+                </Button>
+                <ModalPicker
+                    data={year}
+                    style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
+                    initValue="2017"
+                    onChange={(Year) => this.setState({Year: Year.label})}/>
 				<View style={[styles.listBody, styles.greyBackground]}>
 					<ScrollView ref="scrollView">
 						<View style={{padding: 10}}>
@@ -178,6 +192,21 @@ export class QualityReportShow extends Component {
 		);
 	}
 
+    _shareText() {
+    Share.share({
+          message: 'Check out this Water Report!',
+          url: 'https://water.joetorraca.com/reports/'+ this.state.id + '/',
+        }, {
+          dialogTitle: 'Share Water Report',
+          excludedActivityTypes: [
+            'com.apple.UIKit.activity.PostToTwitter'
+          ],
+          tintColor: 'green'
+        })
+        .then(this._showResult)
+        .catch((error) => this.setState({result: 'error: ' + error.message}));
+    }
+
 	updateListUI(conditions) {
 		var ds = this.state.dataSource.cloneWithRows(conditions);
 		this.setState({
@@ -232,6 +261,9 @@ export class QualityReportShow extends Component {
                         data.push(temp);
                     }
                 }
+                this.setState({
+                    'graph': true
+                })
         }
                                     
 	
