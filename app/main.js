@@ -31,8 +31,10 @@ export class Main extends Component {
 
     const updateUser = user => {
       this.setState({user: user});
-      if(this.state.user.role == 3){
-        this.setState({admin: true});
+      if (this.state.user) {
+        if(this.state.user.role == 3){
+          this.setState({admin: true});
+        }
       }
       console.log(this.state)
     }
