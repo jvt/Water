@@ -25,6 +25,7 @@ import QualityReportShow from './qualityReport/show';
 import QualityReportNew from './qualityReport/new';
 import Map from './map';
 import AdminPanel from './adminPanel'
+import ManageUser from  './manageuser'
 
 const routes = [
 	{
@@ -71,6 +72,10 @@ const routes = [
 		title: 'Admin Panel',
 		index: 10
 	},
+	{
+		title: 'Manage Users',
+		index: 11
+	}
 ];
 
 export default class water extends Component {
@@ -152,6 +157,8 @@ export default class water extends Component {
 				return <QualityReportNew navigator={navigator} data={route.data}></QualityReportNew>
 			} else if (route.index === 10) {
 				return <AdminPanel navigator={navigator}></AdminPanel>
+			} else if (route.index === 11) {
+				return <ManageUser navigator={navigator}></ManageUser>
 			}
 		};
 

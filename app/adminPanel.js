@@ -43,12 +43,6 @@ export class AdminPanel extends Component {
 
 	render() {
 
-		const _navigateToNewReport = () => {
-			this.props.navigator.push({
-				index: 5
-			});
-		}
-
 		const _navigateBack = () => {
 			this.props.navigator.pop();
 		}
@@ -125,59 +119,7 @@ export class AdminPanel extends Component {
 	_onPressRow(_this, row, obj) {
 		console.log('Ban User');
 		console.log(row);
-		if(row.locked === 0){
-			fetch('https://water.joetorraca.com/api/user/' + row.id  + '/ban',
-			{
-				method: 'GET',
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json',
-				}
-			})
-			.then((response) => response.json())
-			.then((res) => {
-				if (res && res.status === 'success') {
-					Alert.alert("User successfully Banned")
-				} else {
-					if (res.messages.length > 0) {
-						console.log('An error occurred with loading users!');
-						console.log(res.messages);
-						Alert.alert(res.messages[0]);
-					} else {
-						Alert.alert('An unexpected error occurred. Please try again.');
-					}
-				}
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-		} else if(row.locked === 1){
-			fetch('https://water.joetorraca.com/api/user/' + row.id  + '/unban',
-			{
-				method: 'GET',
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json',
-				}
-			})
-			.then((response) => response.json())
-			.then((res) => {
-				if (res && res.status === 'success') {
-					Alert.alert("User successfully Unbanned")
-				} else {
-					if (res.messages.length > 0) {
-						console.log('An error occurred with loading users!');
-						console.log(res.messages);
-						Alert.alert(res.messages[0]);
-					} else {
-						Alert.alert('An unexpected error occurred. Please try again.');
-					}
-				}
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-		}
+		
 	}
 
 	updateListUI(users) {
