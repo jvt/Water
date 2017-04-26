@@ -95,9 +95,20 @@ describe('AdminPanel', () => {
 		const instance  = Renderer.create(
 			<Text 
 			style={{}}>
-			Role: User
+			Role: Manager
 			</Text>
 
+		);
+
+		expect(instance.toJSON()).toMatchSnapshot();
+	});
+
+	test('RoleAdminText', () => {
+		const instance  = Renderer.create(
+			<Text 
+			style={{}}>
+			Role: Admin
+			</Button>
 		);
 
 		expect(instance.toJSON()).toMatchSnapshot();
