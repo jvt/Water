@@ -27,7 +27,21 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		shadowColor: '#000000',
 		justifyContent: 'center',
-		shadowOpacity: 1,
+		shadowOpacity: 0.2,
+		shadowRadius: 2,
+		shadowOffset: {
+			height: 4,
+			width: 0
+		}
+	},
+	header2: {
+		backgroundColor: 'white',
+		padding: 30,
+		flex: 1,
+		flexDirection: 'row',
+		shadowColor: '#000000',
+		justifyContent: 'center',
+		shadowOpacity: 0.2,
 		shadowRadius: 2,
 		shadowOffset: {
 			height: 4,
@@ -72,6 +86,20 @@ const styles = StyleSheet.create({
 		width: 50,
 		borderWidth: 0,
 		top: 15,
+		right: -100,
+	},
+	leftHeader3: {
+		position: 'absolute',
+		width: 50,
+		borderWidth: 0,
+		top: -10,
+		left: -100,
+	},
+	rightHeader3: {
+		position: 'absolute',
+		width: 50,
+		borderWidth: 0,
+		top: -10,
 		right: -100,
 	},
 	listBody: {
@@ -131,7 +159,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: 'white'
+		backgroundColor: 'white',
+		marginTop: 100
 	},
     chart: {
         width: 200,

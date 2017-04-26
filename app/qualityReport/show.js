@@ -90,16 +90,16 @@ export class QualityReportShow extends Component {
 		return (
 			<View style={styles.fullscreen}>
 				<ScrollView keyboardDismissMode='on-drag'>
-					<View style={styles.header}>
+					<View style={styles.header2}>
 						<View style={styles.header_item}>
 							<Button
-								style={styles.leftHeader2}
+								style={styles.leftHeader3}
 								onPress={this.props.navigator.pop}
 								textStyle={{fontSize: 14}}>
 								Back
 							</Button>
 							<Button
-								style={styles.rightHeader2}
+								style={styles.rightHeader3}
 								onPress={_navigateToNewQualityReport}
 								textStyle={{fontSize: 14}}>
 								New
@@ -119,17 +119,19 @@ export class QualityReportShow extends Component {
 							/>
 						}
 					</View>
-					<Button
-						style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
-						onPress={this._shareText}
-						textStyle={{fontSize: 18}}>
-						Share
-					</Button>
-					<ModalPicker
-						data={year}
-						style={{marginTop: 20, marginLeft: 20, marginRight: 20}}
-						initValue="2017"
-						onChange={(Year) => this.setState({Year: Year.label})}/>
+					<View style={{paddingTop: 20, paddingBottom: 20, backgroundColor: 'rgba(240, 240, 240, 1)'}}>
+						<Button
+							style={{backgroundColor: 'rgba(66, 163, 221, 1)', marginLeft: 20, marginRight: 20, borderWidth: 0, marginTop: 20}}
+							onPress={this._shareText}
+							textStyle={{fontSize: 18}}>
+							Share
+						</Button>
+						<ModalPicker
+							data={year}
+							style={{marginTop: 20, marginLeft: 20, marginRight: 20, backgroundColor: 'rgba(256, 256, 256, 1)', borderRadius: 4}}
+							initValue="2017"
+							onChange={(Year) => this.setState({Year: Year.label})}/>
+					</View>
 					<View style={[styles.listBody, styles.greyBackground]}>
 						<ScrollView ref="scrollView">
 							<View style={{padding: 10}}>
