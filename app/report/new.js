@@ -63,6 +63,22 @@ export class ReportNew extends Component {
 	}
 
 	render() {
+		const calculateLocation = () => {
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					this.setState({
+						Latitude: String(position.coords.latitude),
+						Longitude: String(position.coords.longitude)
+					});
+				},
+				(error) => alert(error.message),
+				{
+					enableHighAccuracy: true,
+					timeout: 20000,
+					maximumAge: 1000
+				}
+			);
+		}
 		const submitReport = () => {
 			loaderHandler.showLoader("Loading");
 			return fetch('https://water.joetorraca.com/api/reports',
@@ -163,16 +179,24 @@ export class ReportNew extends Component {
 						style={{fontSize: 20, textAlign: 'center', fontWeight: '200'}}>
 						New Water Report
 					</Text>
+					<Button
+						style={{borderWidth: 0}}
+						onPress={() => calculateLocation()}
+						textStyle={{fontSize: 18}}>
+						Use My Location
+					</Button>
 					<TextInput
 						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 50, marginLeft: 20, marginRight: 20, borderRadius: 5}}
 						onChangeText={(Latitude) => this.setState({Latitude})}
 						placeholder='Latitude'
+						value={this.state.Latitude}
 						returnKeyType='next'
 					/>
 					<TextInput
 						style={{height: 40, borderColor: 'gray', borderWidth: 1, borderColor: '#ccc', padding: 10, marginTop: 20, marginLeft: 20, marginRight: 20, borderRadius: 5}}
 						onChangeText={(Longitude) => this.setState({Longitude})}
 						placeholder='Longitude'
+						value={this.state.Longitude}
 						returnKeyType='next'
 					/>
 					<ModalPicker
